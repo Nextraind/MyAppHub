@@ -176,3 +176,57 @@ void handleMusic(struct toneController *controller)
       tone_timer_pin_register = &dummy_register; // don't do software toggle of the pin :)
       PORTB&=~(1<<SPEAKER);
       }
+      
+      // Advance to next note position
+      controller->music_note++;           
+      entry_pos = controller->music_index*sizeof(music_table);
+      entry_pos+=2;
+      numNotes = eeprom_read_byte(entry_pos); // next position is numNotes
+      
+      if (controller->music_note>=numNotes) //theme_music[controller->music_index].numNotes) // exceeded notes in this melody part
+      {
+        controller->music_note=0;
+        controller->music_pos++; // advance sequence position
+
+        if (controller->soundeffect==0 && controller->music_pos>=12) // In music handler, and sequence has overflowed.
+        {
+          controller->music_pos=1; // We are in the music handler
+        }  
+        controller->music_index = music_seq[controller->music_pos];//pgm_read_byte(&music_seq[0]+music_pos);
+      
+      }
+      controller->noteordelay=1; //delay is next
+    } // end note ended
+   else if (controller->noteordelay==1) // 1 = DELAY
+    {
+     // Delay ended, play next note
+     
+     entry_pos = controller->music_index*sizeof(music_table);
+     melody = eeprom_read_word((uint16_t*)entry_pos); // EEPROM position in entry table
+     entry_pos+=2;
+     numNotes = eeprom_read_byte(entry_pos); // next position is numNotes
+     //noteDurations = (uint8_t*)(melody +(numNotes));//melody + (uint16_t)numNotes; // noteDurations follows the melody in EEPROM
+    
+     uint16_t ms=1000,freq;
+
+     freq = eeprom_read_word(melody+controller->music_note);
+
+     uint8_t note;
+     note = freq >> 13;// Extract 2,4,8,16th,32nd note etc from freq
+        // 2 = 1, 4 = 2, 8 = 3, etc.
+     freq &= 0x1FFF;
+     
+     controller->current_delay = ms>>note; // shift rather than divide.
+     
+     //entry_pos = noteDurations+controller->music_note;
+     //controller->current_delay = (ms / (uint16_t) eeprom_read_byte(noteDurations+controller->music_note));
+
+    if (controller->soundeffect==0) // Music
+    {
+      tone(SPEAKER, freq, controller->current_delay);
+    }
+    
+    controller->noteordelay=0;
+    }// end delay ended
+  } // wnd time delay lapsed
+}
