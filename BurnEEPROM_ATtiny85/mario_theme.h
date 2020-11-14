@@ -120,3 +120,69 @@ static const uint16_t  Melody_Part2_2[] =
 
 };
 static const uint8_t NoteDurations_Part2_2[] =
+{
+	4, 8, 8,
+	8, 8, 8, 8,
+	8, 8, 8, 8,
+	8, 8, 4
+};
+
+static const uint16_t  Melody_Part2_3 [] =
+{
+	0, NOTE_DS4, 0,
+	0, NOTE_D4, 0,
+	NOTE_C4, 0, 0,
+	0
+};
+static const uint8_t NoteDurations_Part2_3 [] =
+{
+	4, 8, 8,
+	8, 8, 4,
+	8, 8, 4,
+	2
+};
+
+// Page 4
+static const uint16_t  Melody_Part3_1[] PROGMEM=
+{
+  NOTE_C4, NOTE_C4, 0, NOTE_C4,
+  0, NOTE_C4, NOTE_D4, 0,
+  NOTE_E4, NOTE_C4, 0, NOTE_A4,
+  NOTE_G3, 0, 0,
+
+  NOTE_C4, NOTE_C4, 0, NOTE_C4,
+  0, NOTE_C4, NOTE_D4, NOTE_E4,
+  0,
+
+  NOTE_C4, NOTE_C4, 0, NOTE_C4,
+  0, NOTE_C4, NOTE_D4, 0,
+  NOTE_E4, NOTE_C4, 0, NOTE_A4,
+  NOTE_G4, 0, 0,
+  NOTE_E4, NOTE_E4, 0, NOTE_E4,
+  0, NOTE_C4, NOTE_E4, 0,
+  NOTE_G4, 0, 0,
+  NOTE_G3, 0, 0,
+
+};
+static const uint8_t NoteDurations_Part3_1[] PROGMEM= 
+{
+  8, 8, 8, 8, 
+  8, 8, 8, 8, 
+  8, 8, 8, 8, 
+  8, 8, 4,
+
+  8, 8, 8, 8, 
+  8, 8, 8, 8, 
+  2,
+ 
+  8, 8, 8, 8, 
+  8, 8, 8, 8, 
+  8, 8, 8, 8, 
+  8, 8, 4,
+  8, 8, 8, 8, 
+  8, 8, 8, 8, 
+  8, 8, 4,
+  8, 8, 4,
+   
+  
+};
