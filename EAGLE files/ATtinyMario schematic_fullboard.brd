@@ -922,3 +922,72 @@ design rules under a new name.</description>
 <contactref element="ATTINY85" pad="5"/>
 <contactref element="R10" pad="P$1"/>
 <contactref element="SDA" pad="1"/>
+<contactref element="SDA1" pad="1"/>
+<wire x1="50.79" y1="22.37" x2="54" y2="19.16" width="0.1524" layer="16"/>
+<wire x1="50.79" y1="22.37" x2="50.79" y2="23.4" width="0.1524" layer="16"/>
+<wire x1="50.79" y1="23.4" x2="50.57" y2="23.18" width="0.1524" layer="16"/>
+<wire x1="50.57" y1="23.18" x2="48.03" y2="23.18" width="0.1524" layer="16"/>
+<wire x1="48.03" y1="23.18" x2="46.85" y2="21.5" width="0.1524" layer="16"/>
+<wire x1="46.85" y1="21.5" x2="37" y2="21.5" width="0.1524" layer="16"/>
+<wire x1="37" y1="21.5" x2="36" y2="23" width="0.1524" layer="16"/>
+<wire x1="54" y1="19.16" x2="57.68" y2="19.16" width="0.1524" layer="16"/>
+</signal>
+<signal name="N$3">
+<contactref element="R11" pad="P$2"/>
+<contactref element="T1" pad="B"/>
+<wire x1="26.19" y1="22" x2="29" y2="24.81" width="0.1524" layer="1"/>
+<wire x1="24.27" y1="22" x2="26.19" y2="22" width="0.1524" layer="1"/>
+</signal>
+<signal name="N$4">
+<contactref element="T2" pad="B"/>
+<contactref element="R12" pad="P$2"/>
+<wire x1="16" y1="17.19" x2="16" y2="8" width="0.1524" layer="1"/>
+<wire x1="16" y1="8" x2="19" y2="5" width="0.1524" layer="1"/>
+<wire x1="19" y1="5" x2="24.27" y2="5" width="0.1524" layer="1"/>
+</signal>
+<signal name="AUDIO">
+<contactref element="T1" pad="E"/>
+<contactref element="T2" pad="E"/>
+<contactref element="R13" pad="P$2"/>
+<wire x1="78.81" y1="12.19" x2="78" y2="13" width="0.2" layer="16"/>
+<wire x1="78" y1="19" x2="74" y2="23" width="0.2" layer="16"/>
+<wire x1="78" y1="13" x2="78" y2="19" width="0.2" layer="16"/>
+<contactref element="U$5" pad="SIGNAL"/>
+<wire x1="74" y1="23" x2="72" y2="25" width="0.1524" layer="16"/>
+<wire x1="32" y1="25" x2="30" y2="23" width="0.1524" layer="16"/>
+<wire x1="87" y1="12.19" x2="78.81" y2="12.19" width="0.1524" layer="16"/>
+<wire x1="72" y1="25" x2="32" y2="25" width="0.1524" layer="16"/>
+<wire x1="30" y1="23" x2="27" y2="23" width="0.1524" layer="16"/>
+<wire x1="27" y1="23" x2="26" y2="23" width="0.1524" layer="16"/>
+<wire x1="87" y1="12.19" x2="92" y2="17.19" width="0.1524" layer="1"/>
+<wire x1="92" y1="17.19" x2="92" y2="19" width="0.1524" layer="1"/>
+<wire x1="92" y1="19" x2="94.5" y2="21.5" width="0.1524" layer="1"/>
+<wire x1="94.5" y1="21.5" x2="96" y2="21.5" width="0.1524" layer="1"/>
+<contactref element="GND_3" pad="1"/>
+<wire x1="24.27" y1="7.54" x2="24.27" y2="15.27" width="0.1524" layer="16"/>
+<wire x1="24.27" y1="15.27" x2="27" y2="18" width="0.1524" layer="16"/>
+<wire x1="27" y1="18" x2="27" y2="23" width="0.1524" layer="16"/>
+<wire x1="88" y1="29" x2="88" y2="25" width="0.1524" layer="16"/>
+<wire x1="88" y1="25" x2="92" y2="21" width="0.1524" layer="16"/>
+<wire x1="92" y1="21" x2="95.5" y2="21" width="0.1524" layer="16"/>
+<wire x1="95.5" y1="21" x2="96" y2="21.5" width="0.1524" layer="16"/>
+<wire x1="24.27" y1="24.54" x2="24.27" y2="23.73" width="0.1524" layer="16"/>
+<wire x1="24.27" y1="23.73" x2="25" y2="23" width="0.1524" layer="16"/>
+<wire x1="25" y1="23" x2="26" y2="23" width="0.1524" layer="16"/>
+</signal>
+</signals>
+<mfgpreviewcolors>
+<mfgpreviewcolor name="soldermaskcolor" color="0xC8008000"/>
+<mfgpreviewcolor name="silkscreencolor" color="0xFFFEFEFE"/>
+<mfgpreviewcolor name="backgroundcolor" color="0xFF282828"/>
+<mfgpreviewcolor name="coppercolor" color="0xFFFFBF00"/>
+<mfgpreviewcolor name="substratecolor" color="0xFF786E46"/>
+</mfgpreviewcolors>
+<errors>
+<approved hash="21,19,62bd9ebf9e419cbd"/>
+<approved hash="21,19,e8c6eac4eac4e8c6"/>
+<approved hash="21,19,2d293229302b302b"/>
+</errors>
+</board>
+</drawing>
+</eagle>
