@@ -2,4 +2,8 @@
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
 <eagle version="9.5.0">
 <drawing>
-<se
+<settings>
+<setting alwaysvectorfont="no"/>
+<setting verticaltext="up"/>
+</settings>
+<grid distance="0.02" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistan
