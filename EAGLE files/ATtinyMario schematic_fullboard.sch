@@ -69,4 +69,7 @@
 <layer number="102" name="Vscore" color="7" fill="1" visible="no" active="no"/>
 <layer number="103" name="tMap" color="7" fill="1" visible="no" active="no"/>
 <layer number="104" name="Name" color="16" fill="1" visible="no" active="no"/>
-<layer number="105" name="tPlate" color="7" fill="1" visible="no" active="
+<layer number="105" name="tPlate" color="7" fill="1" visible="no" active="no"/>
+<layer number="106" name="bPlate" color="7" fill="1" visible="no" active="no"/>
+<layer number="107" name="Crop" color="7" fill="1" visible="no" active="no"/>
+<la
