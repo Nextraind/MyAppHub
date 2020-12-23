@@ -76,4 +76,6 @@
 <layer number="109" name="ref-old" color="11" fill="1" visible="no" active="no"/>
 <layer number="110" name="fp0" color="7" fill="1" visible="no" active="no"/>
 <layer number="111" name="LPC17xx" color="7" fill="1" visible="no" active="no"/>
-<layer number="11
+<layer number="112" name="tSilk" color="7" fill="1" visible="no" active="no"/>
+<layer number="113" name="IDFDebug" color="4" fill="1" visible="no" active="no"/>
+<layer number="114" name="Badge_Outli
