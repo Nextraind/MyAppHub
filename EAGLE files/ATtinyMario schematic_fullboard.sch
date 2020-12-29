@@ -87,4 +87,6 @@
 <layer number="123" name="tTestmark" color="7" fill="1" visible="no" active="no"/>
 <layer number="124" name="bTestmark" color="7" fill="1" visible="no" active="no"/>
 <layer number="125" name="_tNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="126" name="_bNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="127" name="_tValues" color="7" fill="1" visible="no" active="no"/>
 <layer numb
