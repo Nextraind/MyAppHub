@@ -108,4 +108,6 @@
 <layer number="204" name="204bmp" color="5" fill="10" visible="no" active="no"/>
 <layer number="205" name="205bmp" color="6" fill="10" visible="no" active="no"/>
 <layer number="206" name="206bmp" color="7" fill="10" visible="no" active="no"/>
-<laye
+<layer number="207" name="207bmp" color="8" fill="10" visible="no" active="no"/>
+<layer number="208" name="208bmp" color="9" fill="10" visible="no" active="no"/>
+<layer number="20
