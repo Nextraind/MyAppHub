@@ -114,4 +114,6 @@
 <layer number="210" name="210bmp" color="7" fill="1" visible="no" active="no"/>
 <layer number="211" name="211bmp" color="7" fill="1" visible="no" active="no"/>
 <layer number="212" name="212bmp" color="7" fill="1" visible="no" active="no"/>
-<layer number="213" name="213bmp"
+<layer number="213" name="213bmp" color="7" fill="1" visible="no" active="no"/>
+<layer number="214" name="214bmp" color="7" fill="1" visible="no" active="no"/>
+<layer number="215" name="215bmp" color="7" fill="1" visible="no" active
