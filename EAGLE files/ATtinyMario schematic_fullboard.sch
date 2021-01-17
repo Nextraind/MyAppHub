@@ -130,4 +130,6 @@
 <layer number="226" name="226bmp" color="7" fill="1" visible="no" active="no"/>
 <layer number="227" name="227bmp" color="11" fill="1" visible="no" active="no"/>
 <layer number="228" name="228bmp" color="10" fill="1" visible="no" active="no"/>
-<layer number="229" na
+<layer number="229" name="229bmp" color="14" fill="1" visible="no" active="no"/>
+<layer number="230" name="230bmp" color="12" fill="1" visible="no" active="no"/>
+<layer number="231" name="231b
