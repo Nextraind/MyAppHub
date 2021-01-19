@@ -132,4 +132,6 @@
 <layer number="228" name="228bmp" color="10" fill="1" visible="no" active="no"/>
 <layer number="229" name="229bmp" color="14" fill="1" visible="no" active="no"/>
 <layer number="230" name="230bmp" color="12" fill="1" visible="no" active="no"/>
-<layer number="231" name="231b
+<layer number="231" name="231bmp" color="9" fill="1" visible="no" active="no"/>
+<layer number="232" name="Eagle3D_PG2" color="7" fill="1" visible="no" active="no"/>
+<layer number="233" name="Eagle3D_PG3" color="7" fill
