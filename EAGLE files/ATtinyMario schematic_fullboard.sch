@@ -142,4 +142,8 @@
 <layer number="254" name="cooling" color="7" fill="1" visible="no" active="no"/>
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="no"/>
 </layers>
-<schematic xreflabel="%F%N/%S.%C%R" xre
+<schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
+<libraries>
+<library name="_hhn_attiny25_45_85">
+<description>&lt;h3&gt;ATMEL ATtiny 25 / 45 /48&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;b&gt;&lt;u&gt;Supplied Packages:&lt;/u&g
