@@ -146,4 +146,7 @@
 <libraries>
 <library name="_hhn_attiny25_45_85">
 <description>&lt;h3&gt;ATMEL ATtiny 25 / 45 /48&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;&lt;b&gt;&lt;u&gt;Supplied Packages:&lt;/u&g
+&lt;p&gt;&lt;br /&gt;&lt;b&gt;&lt;u&gt;Supplied Packages:&lt;/u&gt;&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;P&lt;/b&gt; &amp;nbsp; = PDIP 08 30mil&lt;br /&gt;
+&lt;b&gt;S&lt;/b&gt; &amp;nbsp; = SOIC 08 EIAJ 208mil&lt;br /&gt;
+&lt;b&gt;SS&lt;/b&gt; = SOIC 08 J
