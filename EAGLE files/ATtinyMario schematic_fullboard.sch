@@ -153,4 +153,12 @@
 &lt;b&gt;X&lt;/b&gt;&gt; &amp;nbsp; = TSSOP 08 4.4mm&lt;/p&gt;
 
 &lt;p&gt;&lt;u&gt;&lt;b&gt;Revisions / Changelog&lt;/b&gt;&lt;/u&gt;&lt;br /&gt;
-&amp;bull; &amp;
+&amp;bull; &amp;nbsp;5.0.0 [EAGLE 5]&lt;br /&gt;
+&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;author&gt;
+&lt;p&gt;&lt;u&gt;Author:&lt;/u&gt;&lt;br /&gt;
+Dipl.-Ing. FH Rainer Bayer&lt;br /&gt;
+HHN Hochschule Heilbronn (Heilbronn 
