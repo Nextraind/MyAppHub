@@ -161,4 +161,6 @@
 &lt;author&gt;
 &lt;p&gt;&lt;u&gt;Author:&lt;/u&gt;&lt;br /&gt;
 Dipl.-Ing. FH Rainer Bayer&lt;br /&gt;
-HHN Hochschule Heilbronn (Heilbronn 
+HHN Hochschule Heilbronn (Heilbronn University), &lt;i&gt;rainer.bayer@hs-heilbronn.de&lt;/i&gt;&lt;br /&gt;
+Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt;</description>
+<
