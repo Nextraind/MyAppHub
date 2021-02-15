@@ -183,4 +183,6 @@ Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt
 <pad name="3" x="1.27" y="-3.81" drill="0.8128" rot="R90"/>
 <pad name="4" x="3.81" y="-3.81" drill="0.8128" rot="R90"/>
 <pad name="6" x="1.27" y="3.81" drill="0.8128" rot="R90"/>
-<p
+<pad name="5" x="3.81" y="3.81" drill="0.8128" rot="R90"/>
+<text x="-3.175" y="0.635" size="1.4224" layer="25" ratio="9">&gt;NAME</text>
+<text x="-3.175" y="-1.905" size="1.4
