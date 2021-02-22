@@ -204,4 +204,7 @@ Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt
 <smd name="2" x="-0.635" y="-3.33" dx="0.6" dy="2.286" layer="1"/>
 <smd name="7" x="-0.635" y="3.33" dx="0.6" dy="2.286" layer="1"/>
 <smd name="1" x="-1.905" y="-3.33" dx="0.6" dy="2.286" layer="1"/>
-<smd name="3" x="0.635" y="-3.33" dx="0.6" 
+<smd name="3" x="0.635" y="-3.33" dx="0.6" dy="2.286" layer="1"/>
+<smd name="4" x="1.905" y="-3.33" dx="0.6" dy="2.286" layer="1"/>
+<smd name="8" x="-1.905" y="3.33" dx="0.6" dy="2.286" layer="1"/>
+<smd name="6" x=
