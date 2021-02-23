@@ -209,4 +209,7 @@ Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt
 <smd name="8" x="-1.905" y="3.33" dx="0.6" dy="2.286" layer="1"/>
 <smd name="6" x="0.635" y="3.33" dx="0.6" dy="2.286" layer="1"/>
 <smd name="5" x="1.905" y="3.33" dx="0.6" dy="2.286" layer="1"/>
-<text x="-2.867" y="-2.54" size="1.4224" layer="25" ratio="9" rot="R90">&gt;N
+<text x="-2.867" y="-2.54" size="1.4224" layer="25" ratio="9" rot="R90">&gt;NAME</text>
+<text x="4.2958" y="-2.54" size="1.4224" layer="27" ratio="9" rot="R90">&gt;VALUE</text>
+<rectangle x1="-2.1501" y1="-4.15" x2="-1.6599" y2="-2.6301" layer="21"/>
+<r
