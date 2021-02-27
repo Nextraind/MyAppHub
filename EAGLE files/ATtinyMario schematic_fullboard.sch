@@ -227,4 +227,7 @@ Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt
 <wire x1="12.7" y1="7.62" x2="12.7" y2="-10.16" width="0.254" layer="94"/>
 <wire x1="12.7" y1="-10.16" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
 <wire x1="-10.16" y1="-10.16" x2="-10.16" y2="7.62" width="0.254" layer="94"/>
-<text x="-10.16" y="8.382" size="1.778" layer="95">&gt;NAME
+<text x="-10.16" y="8.382" size="1.778" layer="95">&gt;NAME</text>
+<text x="-10.16" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="PB0" x="17.78" y="-7.62" length="middle" rot="R180"/>
+<pin name="PB1" x="17.78" y="-5.08" length="middle"
