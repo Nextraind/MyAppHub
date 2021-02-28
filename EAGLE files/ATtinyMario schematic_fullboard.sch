@@ -233,4 +233,7 @@ Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt
 <pin name="PB1" x="17.78" y="-5.08" length="middle" rot="R180"/>
 <pin name="PB2" x="17.78" y="-2.54" length="middle" rot="R180"/>
 <pin name="PB3" x="17.78" y="0" length="middle" rot="R180"/>
-<pin name="PB4" x="17.78" y="2.5
+<pin name="PB4" x="17.78" y="2.54" length="middle" rot="R180"/>
+<pin name="NRES/PB5" x="17.78" y="5.08" length="middle" rot="R180"/>
+<pin name="VCC" x="-15.24" y="5.08" length="middle" direction="pwr"/>
+<pin name="GND" x="-15
