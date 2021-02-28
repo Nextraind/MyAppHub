@@ -230,4 +230,7 @@ Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt
 <text x="-10.16" y="8.382" size="1.778" layer="95">&gt;NAME</text>
 <text x="-10.16" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="PB0" x="17.78" y="-7.62" length="middle" rot="R180"/>
-<pin name="PB1" x="17.78" y="-5.08" length="middle"
+<pin name="PB1" x="17.78" y="-5.08" length="middle" rot="R180"/>
+<pin name="PB2" x="17.78" y="-2.54" length="middle" rot="R180"/>
+<pin name="PB3" x="17.78" y="0" length="middle" rot="R180"/>
+<pin name="PB4" x="17.78" y="2.5
