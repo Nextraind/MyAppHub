@@ -243,4 +243,7 @@ Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt
 <deviceset name="ATTINY85*" prefix="U">
 <description>&lt;h3&gt;ATMEL ATtiny 85&lt;/h3&gt;
 
-&lt
+&lt;p&gt;&lt;br /&gt;&lt;b&gt;&lt;u&gt;Packages:&lt;/u&gt;&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;P&lt;/b&gt; = PDIP 08 30mil&lt;br /&gt;
+&lt;b&gt;S&lt;/b&gt; = SOIC 08 EIAJ 208mil&lt;/p&gt;
+
