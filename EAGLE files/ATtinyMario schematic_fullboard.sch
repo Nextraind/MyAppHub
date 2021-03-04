@@ -236,4 +236,11 @@ Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt
 <pin name="PB4" x="17.78" y="2.54" length="middle" rot="R180"/>
 <pin name="NRES/PB5" x="17.78" y="5.08" length="middle" rot="R180"/>
 <pin name="VCC" x="-15.24" y="5.08" length="middle" direction="pwr"/>
-<pin name="GND" x="-15
+<pin name="GND" x="-15.24" y="-7.62" length="middle" direction="pwr"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="ATTINY85*" prefix="U">
+<description>&lt;h3&gt;ATMEL ATtiny 85&lt;/h3&gt;
+
+&lt
