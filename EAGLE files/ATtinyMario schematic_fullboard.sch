@@ -252,4 +252,11 @@ Note: for complete ordering code  (temp. range, finish, tape&amp;reel etc.) see 
 &amp;bull; Supply Voltage:
   &lt;b&gt;V&lt;/b&gt; = (1.8&amp;hellip;5.5)V | &lt;b&gt;[blank]&lt;/b&gt; = (2.7&amp;hellip;5.5)V&lt;br /&gt;
 &amp;bull; Speed:
-  &lt;b&gt;10&lt;/b&gt; = 10 MHz | &lt;b&g
+  &lt;b&gt;10&lt;/b&gt; = 10 MHz | &lt;b&gt;20&lt;/b&gt; = 20 MHz
+&lt;/pre&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;author&gt;
+&lt;p&gt;&lt;u&gt;Author:&lt;/u&gt;&lt;br /&gt;
+Dipl.-Ing. FH Rainer Bayer&lt;br /&gt;
+HHN Hochschule Heilbronn (He
