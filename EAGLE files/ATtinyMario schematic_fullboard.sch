@@ -260,4 +260,11 @@ Note: for complete ordering code  (temp. range, finish, tape&amp;reel etc.) see 
 &lt;p&gt;&lt;u&gt;Author:&lt;/u&gt;&lt;br /&gt;
 Dipl.-Ing. FH Rainer Bayer&lt;br /&gt;
 HHN Hochschule Heilbronn (Heilbronn University), &lt;i&gt;rainer.bayer@hs-heilbronn.de&lt;/i&gt;&lt;br /&gt;
-Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&
+Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt;</description>
+<gates>
+<gate name="G$1" symbol="ATTINY25_45_85" x="0" y="0"/>
+</gates>
+<devices>
+<device name="P" package="PDIP08_300MIL">
+<connects>
+<connect gate="G$1" pin="GND" 
