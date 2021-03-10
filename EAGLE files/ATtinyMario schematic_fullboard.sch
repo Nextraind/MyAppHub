@@ -267,4 +267,9 @@ Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt
 <devices>
 <device name="P" package="PDIP08_300MIL">
 <connects>
-<connect gate="G$1" pin="GND" 
+<connect gate="G$1" pin="GND" pad="4"/>
+<connect gate="G$1" pin="NRES/PB5" pad="1"/>
+<connect gate="G$1" pin="PB0" pad="5"/>
+<connect gate="G$1" pin="PB1" pad="6"/>
+<connect gate="G$1" pin="PB2" pad="7"/>
+<con
