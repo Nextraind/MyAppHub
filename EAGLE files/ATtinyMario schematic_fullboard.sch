@@ -272,4 +272,11 @@ Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt
 <connect gate="G$1" pin="PB0" pad="5"/>
 <connect gate="G$1" pin="PB1" pad="6"/>
 <connect gate="G$1" pin="PB2" pad="7"/>
-<con
+<connect gate="G$1" pin="PB3" pad="2"/>
+<connect gate="G$1" pin="PB4" pad="3"/>
+<connect gate="G$1" pin="VCC" pad="8"/>
+</connects>
+<technologies>
+<technology name="-"/>
+<technology name="-20"/>
+<technology
