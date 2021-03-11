@@ -279,4 +279,11 @@ Ingenieurbüro ing-rb, &lt;i&gt;mail@ing-rb.de&lt;/i&gt;&lt;/p&gt;&lt;/author&gt
 <technologies>
 <technology name="-"/>
 <technology name="-20"/>
-<technology
+<technology name="V-10"/>
+</technologies>
+</device>
+<device name="S" package="SOIC8_EIAJ_208MIL">
+<connects>
+<connect gate="G$1" pin="GND" pad="4"/>
+<connect gate="G$1" pin="NRES/PB5" pad="1"/>
+<conn
