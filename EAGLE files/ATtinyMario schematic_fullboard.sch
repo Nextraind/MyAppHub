@@ -377,4 +377,4 @@ In this library the device names are the same as the pin names of the symbols, t
 This library contains resistors. Reference designator:R. 
 &lt;br&gt;
 &lt;br&gt;
-We've spen
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity
