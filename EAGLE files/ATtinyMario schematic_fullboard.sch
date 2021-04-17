@@ -411,4 +411,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="2.54" y1="1.27" x2="2.54" y2="0" width="0.254" layer="21"/>
 <wire x1="2.54" y1="0" x2="2.54" y2="-1.27" width="0.254" layer="21"/>
 <wire x1="2.54" y1="-1.27" x2="-2.54" y2="-1.27" width="0.254" layer="21"/>
-<wire x1="-2.54" y1="-1.27" x2="-2.5
+<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="0" width="0.254" layer="21"/>
+<wire x1="-2.54" y1="0" x2="-2.54" y2="1.27" width="0.254" layer="21"/>
+<wire x1="2.54" y1="0" x2="2.794" y2="0" width="0.254" layer="21"/>
+<wire x1="-2.54" y1="0" x2="-2.7
