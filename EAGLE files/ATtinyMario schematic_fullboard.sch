@@ -422,4 +422,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <polygon width="0.127" layer="30">
 <vertex x="3.8201" y="-0.9449" curve="-90"/>
 <vertex x="2.8652" y="-0.0152" curve="-90.011749"/>
-<vertex x="3.8176" y="0.9602" c
+<vertex x="3.8176" y="0.9602" curve="-90"/>
+<vertex x="4.7676" y="-0.0178" curve="-90.024193"/>
+</polygon>
+<polygon width="0.127" layer="29">
+<vertex x="3.8176" y="-0.4369" curve="-90.012891"/>
+<vertex x="3.3731" y="-0.0127
