@@ -436,4 +436,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <vertex x="-4.7624" y="-0.0228" curve="-90.011749"/>
 <vertex x="-3.81" y="0.9526" curve="-90"/>
 <vertex x="-2.86" y="-0.0254" curve="-90.024193"/>
-</poly
+</polygon>
+<polygon width="0.127" layer="29">
+<vertex x="-3.81" y="-0.4445" curve="-90.012891"/>
+<vertex x="-4.2545" y="-0.0203" curve="-90"/>
+<vertex x="-3.81" y="0.447" curve="-90"/>
+<vert
