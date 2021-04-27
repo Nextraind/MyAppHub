@@ -441,4 +441,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <vertex x="-3.81" y="-0.4445" curve="-90.012891"/>
 <vertex x="-4.2545" y="-0.0203" curve="-90"/>
 <vertex x="-3.81" y="0.447" curve="-90"/>
-<vert
+<vertex x="-3.3681" y="-0.0101" curve="-90.012967"/>
+</polygon>
+</package>
+<package name="0402">
+<description>&lt;p&gt;&lt;b&gt;Generic 1005 (0402) package&lt;/b&gt;&lt;/p&gt
