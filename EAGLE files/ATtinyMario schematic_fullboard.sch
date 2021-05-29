@@ -529,4 +529,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <deviceset name="RESISTOR" prefix="R">
 <description>Generic Resistor Package</description>
 <gates>
-<gate 
+<gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="AXIAL-0.3" package="AXIAL-0.3">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" p
