@@ -570,4 +570,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </device>
 <device name="0603" package="0603">
 <connects>
-<connect gate="G$1" pi
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value=" " constant="no"/>
+<attribute name="VALUE
