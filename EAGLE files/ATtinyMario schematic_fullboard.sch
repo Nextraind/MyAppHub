@@ -678,4 +678,6 @@ grid 5.08 mm</description>
 <text x="-10.16" y="7.62" size="1.778" layer="95">&gt;NAME</text>
 <text x="-10.16" y="5.08" size="1.778" layer="96">&gt;VALUE</text>
 <rectangle x1="-0.254" y1="-2.54" x2="0.508" y2="2.54" layer="94"/>
-<pin name="B"
+<pin name="B" x="-2.54" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+<pin name="E" x="2.54" y="-5.08" visible="off" length="short" direction="pas" swaplevel="3" rot="R90"/>
+<pin name="
