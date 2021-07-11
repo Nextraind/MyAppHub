@@ -691,4 +691,13 @@ With round pins</description>
 <gates>
 <gate name="G$1" symbol="PINHD1" x="0" y="0"/>
 </gates>
-<d
+<devices>
+<device name="" package="1X01">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="CB" pack
