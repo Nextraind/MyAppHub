@@ -685,4 +685,10 @@ grid 5.08 mm</description>
 </symbols>
 <devicesets>
 <deviceset name="PINHD-1X1" prefix="JP" uservalue="yes">
-<descr
+<description>&lt;b&gt;Pin header 1x1 for 0.1" spacing&lt;/b&gt;
+&lt;p&gt;
+With round pins</description>
+<gates>
+<gate name="G$1" symbol="PINHD1" x="0" y="0"/>
+</gates>
+<d
