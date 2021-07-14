@@ -700,4 +700,12 @@ With round pins</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="CB" pack
+<device name="CB" package="1X01-CLEANBIG">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-BIGPOGO" pac
