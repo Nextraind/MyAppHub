@@ -708,4 +708,14 @@ With round pins</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="-BIGPOGO" pac
+<device name="-BIGPOGO" package="1X1-BIGPOGO">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<devi
