@@ -718,4 +718,10 @@ With round pins</description>
 </device>
 </devices>
 </deviceset>
-<devi
+<deviceset name="2N2222" prefix="T">
+<description>&lt;b&gt;NPN TRANSISTOR&lt;/b&gt;
+Big oval pads</description>
+<gates>
+<gate name="G$1" symbol="NPN" x="0" y="0"/>
+</gates>
+<device
