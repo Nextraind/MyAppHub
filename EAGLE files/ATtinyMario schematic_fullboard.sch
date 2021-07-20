@@ -724,4 +724,9 @@ Big oval pads</description>
 <gates>
 <gate name="G$1" symbol="NPN" x="0" y="0"/>
 </gates>
-<device
+<devices>
+<device name="" package="TO92-EBC-OVAL">
+<connects>
+<connect gate="G$1" pin="B" pad="B"/>
+<connect gate="G$1" pin="C" pad="C"/>
+<connect gate="G$1" pin="E" pad="E"/>
