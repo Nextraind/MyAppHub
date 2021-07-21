@@ -741,4 +741,7 @@ Big oval pads</description>
 </library>
 <library name="PCB_button">
 <packages>
-<package name="PCB_
+<package name="PCB_BUTTON">
+<wire x1="-2.49" y1="1.03" x2="3.51" y2="1.03" width="0.5" layer="1"/>
+<wire x1="3.51" y1="1.03" x2="3.51" y2="0.03" width="0.5" layer="1"/>
+<wire x1="3.51" y1="0.03
