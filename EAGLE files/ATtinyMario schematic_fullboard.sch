@@ -754,4 +754,6 @@ Big oval pads</description>
 <wire x1="-3.49" y1="0.03" x2="-3.49" y2="2.03" width="0.5" layer="1"/>
 <wire x1="-0.49" y1="2.03" x2="-3.49" y2="2.03" width="0.5" layer="1"/>
 <wire x1="-3.49" y1="0.03" x2="-3.49" y2="-1.97" width="0.5" layer="1"/>
-<wire x1="3.
+<wire x1="3.51" y1="-1.97" x2="3.51" y2="-0.97" width="0.5" layer="1"/>
+<wire x1="3.51" y1="2.03" x2="0.51" y2="2.03" width="0.5" layer="1"/>
+<wire x1="3.51" y1="-1.97" x2="0.51" y2="-1.97" width="0
