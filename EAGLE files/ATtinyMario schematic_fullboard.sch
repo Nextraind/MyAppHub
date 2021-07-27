@@ -759,4 +759,9 @@ Big oval pads</description>
 <wire x1="3.51" y1="-1.97" x2="0.51" y2="-1.97" width="0.5" layer="1"/>
 <wire x1="3.51" y1="0.03" x2="4.51" y2="0.03" width="0.8128" layer="1"/>
 <wire x1="-3.49" y1="0.03" x2="-4.49" y2="0.03" width="0.8128" layer="1"/>
-<rectangle x1="-3.81" y1="-2.54" x2=
+<rectangle x1="-3.81" y1="-2.54" x2="3.81" y2="2.54" layer="29"/>
+<polygon width="0.1524" layer="41">
+<vertex x="-3.81" y="2.54"/>
+<vertex x="-3.81" y="-2.54"/>
+<vertex x="3.81" y="-2.54"/>
+<vertex x="3.81" y="2
