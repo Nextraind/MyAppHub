@@ -764,4 +764,11 @@ Big oval pads</description>
 <vertex x="-3.81" y="2.54"/>
 <vertex x="-3.81" y="-2.54"/>
 <vertex x="3.81" y="-2.54"/>
-<vertex x="3.81" y="2
+<vertex x="3.81" y="2.54"/>
+</polygon>
+</package>
+</packages>
+<symbols>
+<symbol name="PDB_BUTTON_SYMBOL">
+<pin name="PAD2" x="-7.62" y="0" visible="off" length="short"/>
+<wire x1="-5" y1="3" x2="-5" 
