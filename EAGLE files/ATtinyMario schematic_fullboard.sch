@@ -771,4 +771,7 @@ Big oval pads</description>
 <symbols>
 <symbol name="PDB_BUTTON_SYMBOL">
 <pin name="PAD2" x="-7.62" y="0" visible="off" length="short"/>
-<wire x1="-5" y1="3" x2="-5" 
+<wire x1="-5" y1="3" x2="-5" y2="2" width="0.254" layer="94"/>
+<wire x1="-5" y1="2" x2="-5" y2="0" width="0.254" layer="94"/>
+<wire x1="-5" y1="0" x2="-5" y2="-2" width="0.254" layer="94"/>
+<wire x1="-
