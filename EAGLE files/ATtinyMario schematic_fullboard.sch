@@ -777,4 +777,6 @@ Big oval pads</description>
 <wire x1="-5" y1="-2" x2="-5" y2="-3" width="0.254" layer="94"/>
 <wire x1="-5" y1="-3" x2="3" y2="-3" width="0.254" layer="94"/>
 <wire x1="3" y1="-3" x2="3" y2="-1" width="0.254" layer="94"/>
-<wire
+<wire x1="3" y1="-1" x2="3" y2="1" width="0.254" layer="94"/>
+<wire x1="3" y1="1" x2="3" y2="3" width="0.254" layer="94"/>
+<wire x1="3" y1="3" x2="-5" y2="3" width="0.254" layer="94"
