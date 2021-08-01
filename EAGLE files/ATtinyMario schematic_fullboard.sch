@@ -785,4 +785,12 @@ Big oval pads</description>
 <wire x1="3" y1="-1" x2="-4" y2="-1" width="0.254" layer="94"/>
 <wire x1="-5" y1="-2" x2="2" y2="-2" width="0.254" layer="94"/>
 <pin name="PAD1" x="5.46" y="0" visible="off" length="short" rot="R180"/>
-<wire x1="2" y1="2" x2="-5" y2="2
+<wire x1="2" y1="2" x2="-5" y2="2" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="PCB_BUTTON_DEVICE">
+<gates>
+<gate name="G$1" symbol="PDB_BUTTON_SYMBOL" x="0" y="0"/>
+</gates>
+<devi
