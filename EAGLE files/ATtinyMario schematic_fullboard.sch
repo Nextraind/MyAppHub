@@ -800,4 +800,13 @@ Big oval pads</description>
 <connect gate="G$1" pin="PAD2" pad="PAD2"/>
 </connects>
 <technologies>
-<t
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="PCB_wheel">
+<packages>
+<package name="VOLUME_PCB">
