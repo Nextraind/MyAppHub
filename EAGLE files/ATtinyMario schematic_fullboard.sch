@@ -793,4 +793,11 @@ Big oval pads</description>
 <gates>
 <gate name="G$1" symbol="PDB_BUTTON_SYMBOL" x="0" y="0"/>
 </gates>
-<devi
+<devices>
+<device name="" package="PCB_BUTTON">
+<connects>
+<connect gate="G$1" pin="PAD1" pad="PAD1"/>
+<connect gate="G$1" pin="PAD2" pad="PAD2"/>
+</connects>
+<technologies>
+<t
