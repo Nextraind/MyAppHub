@@ -810,3 +810,7 @@ Big oval pads</description>
 <library name="PCB_wheel">
 <packages>
 <package name="VOLUME_PCB">
+<pad name="SIGNAL" x="0" y="0" drill="0.6" shape="square"/>
+<pad name="VCC" x="0" y="4" drill="0.6" shape="square"/>
+<pad name="GND" x="0" y="-4" drill="0.6" shape="square"/>
+<
