@@ -813,4 +813,6 @@ Big oval pads</description>
 <pad name="SIGNAL" x="0" y="0" drill="0.6" shape="square"/>
 <pad name="VCC" x="0" y="4" drill="0.6" shape="square"/>
 <pad name="GND" x="0" y="-4" drill="0.6" shape="square"/>
-<
+<pad name="P$4" x="-10" y="-5.1" drill="0.6" shape="square"/>
+<pad name="P$5" x="-10" y="5.1" drill="0.6" shape="square"/>
+<circle x="-8" y="0" radius="8" width="0.127" layer=
