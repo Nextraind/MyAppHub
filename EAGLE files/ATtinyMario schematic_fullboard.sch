@@ -815,4 +815,11 @@ Big oval pads</description>
 <pad name="GND" x="0" y="-4" drill="0.6" shape="square"/>
 <pad name="P$4" x="-10" y="-5.1" drill="0.6" shape="square"/>
 <pad name="P$5" x="-10" y="5.1" drill="0.6" shape="square"/>
-<circle x="-8" y="0" radius="8" width="0.127" layer=
+<circle x="-8" y="0" radius="8" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="VOLUME_SYM">
+<pin name="SIGNAL" x="0" y="0" length="middle"/>
+<pin name="VCC" x="0" y="2.54" length="middle"/>
+<pin name=
