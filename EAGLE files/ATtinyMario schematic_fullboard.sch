@@ -822,4 +822,10 @@ Big oval pads</description>
 <symbol name="VOLUME_SYM">
 <pin name="SIGNAL" x="0" y="0" length="middle"/>
 <pin name="VCC" x="0" y="2.54" length="middle"/>
-<pin name=
+<pin name="GND" x="0" y="-2.54" length="middle"/>
+<circle x="-5.08" y="0" radius="5.6796125" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="VOLUME_WHEEL">
+<
