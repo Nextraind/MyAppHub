@@ -828,4 +828,11 @@ Big oval pads</description>
 </symbols>
 <devicesets>
 <deviceset name="VOLUME_WHEEL">
-<
+<gates>
+<gate name="G$1" symbol="VOLUME_SYM" x="10.16" y="0"/>
+</gates>
+<devices>
+<device name="" package="VOLUME_PCB">
+<connects>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connec
