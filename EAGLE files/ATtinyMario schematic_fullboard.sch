@@ -835,4 +835,13 @@ Big oval pads</description>
 <device name="" package="VOLUME_PCB">
 <connects>
 <connect gate="G$1" pin="GND" pad="GND"/>
-<connec
+<connect gate="G$1" pin="SIGNAL" pad="SIGNAL"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devic
