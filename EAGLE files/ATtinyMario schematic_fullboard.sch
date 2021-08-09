@@ -844,4 +844,16 @@ Big oval pads</description>
 </device>
 </devices>
 </deviceset>
-</devic
+</devicesets>
+</library>
+</libraries>
+<attributes>
+</attributes>
+<variantdefs>
+</variantdefs>
+<classes>
+<class number="0" name="default" width="0" drill="0">
+</class>
+</classes>
+<parts>
+<part name="ATTINY8
