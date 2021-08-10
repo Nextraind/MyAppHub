@@ -856,4 +856,5 @@ Big oval pads</description>
 </class>
 </classes>
 <parts>
-<part name="ATTINY8
+<part name="ATTINY85" library="_hhn_attiny25_45_85" deviceset="ATTINY85*" device="P" technology="-20" value="ATTINY85"/>
+<part name="P+1" library="supply1" library_urn="urn:adsk.eag
