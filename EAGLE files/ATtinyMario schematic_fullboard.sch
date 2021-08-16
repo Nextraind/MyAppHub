@@ -870,4 +870,5 @@ Big oval pads</description>
 <part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="22k"/>
 <part name="R8" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="47k"/>
 <part name="R9" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="10k"/>
-<part 
+<part name="R10" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="10k"/>
+<part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
