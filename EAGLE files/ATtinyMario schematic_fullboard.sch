@@ -874,4 +874,6 @@ Big oval pads</description>
 <part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="VCC" library="adafruit" deviceset="PINHD-1X1" device=""/>
-<par
+<part name="GND_1" library="adafruit" deviceset="PINHD-1X1" device=""/>
+<part name="SCL" library="adafruit" deviceset="PINHD-1X1" device="CB"/>
+<part name="SDA" library="adafruit" deviceset="PINHD-1X1"
