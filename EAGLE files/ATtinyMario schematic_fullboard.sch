@@ -882,4 +882,7 @@ Big oval pads</description>
 <part name="U$1" library="PCB_button" deviceset="PCB_BUTTON_DEVICE" device=""/>
 <part name="U$6" library="PCB_button" deviceset="PCB_BUTTON_DEVICE" device=""/>
 <part name="U$7" library="PCB_button" deviceset="PCB_BUTTON_DEVICE" device=""/>
-<part name="GND2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset=
+<part name="GND2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
+<part name="U$2" library="PCB_button" deviceset="PCB_BUTTON_DEVICE" device=""/>
+<part name="U$3" library="PCB_button" deviceset="PCB_BUTTON_DEVICE" device=""/>
+<part na
