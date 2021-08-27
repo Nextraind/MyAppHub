@@ -887,4 +887,6 @@ Big oval pads</description>
 <part name="U$3" library="PCB_button" deviceset="PCB_BUTTON_DEVICE" device=""/>
 <part name="U$4" library="PCB_button" deviceset="PCB_BUTTON_DEVICE" device=""/>
 <part name="R11" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="1k"/>
-<part name="R12" l
+<part name="R12" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="1k"/>
+<part name="T1" library="adafruit" deviceset="2N2222" device=""/>
+<part name="T2" library="adafruit" deviceset="2N2
