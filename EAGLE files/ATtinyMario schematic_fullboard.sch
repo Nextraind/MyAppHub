@@ -889,4 +889,6 @@ Big oval pads</description>
 <part name="R11" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="1k"/>
 <part name="R12" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="1k"/>
 <part name="T1" library="adafruit" deviceset="2N2222" device=""/>
-<part name="T2" library="adafruit" deviceset="2N2
+<part name="T2" library="adafruit" deviceset="2N2222" device=""/>
+<part name="P+5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
+<part name="R13" library="SparkFun-Resistors" deviceset="
