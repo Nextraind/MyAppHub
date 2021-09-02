@@ -895,4 +895,7 @@ Big oval pads</description>
 <part name="GND3" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="U$5" library="PCB_wheel" deviceset="VOLUME_WHEEL" device=""/>
 <part name="P+7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
-<part name="GND5" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset=
+<part name="GND5" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
+<part name="GND_3" library="adafruit" deviceset="PINHD-1X1" device=""/>
+<part name="VCC_1" library="adafruit" deviceset="PINHD-1X1" device=""/>
+<part name="GND_4" library="ada
