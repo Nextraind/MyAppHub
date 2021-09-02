@@ -898,4 +898,6 @@ Big oval pads</description>
 <part name="GND5" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="GND_3" library="adafruit" deviceset="PINHD-1X1" device=""/>
 <part name="VCC_1" library="adafruit" deviceset="PINHD-1X1" device=""/>
-<part name="GND_4" library="ada
+<part name="GND_4" library="adafruit" deviceset="PINHD-1X1" device=""/>
+<part name="VCC_3" library="adafruit" deviceset="PINHD-1X1" device=""/>
+<part name="GND_5" library="adafruit" deviceset="PINHD-1X
