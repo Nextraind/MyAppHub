@@ -900,4 +900,8 @@ Big oval pads</description>
 <part name="VCC_1" library="adafruit" deviceset="PINHD-1X1" device=""/>
 <part name="GND_4" library="adafruit" deviceset="PINHD-1X1" device=""/>
 <part name="VCC_3" library="adafruit" deviceset="PINHD-1X1" device=""/>
-<part name="GND_5" library="adafruit" deviceset="PINHD-1X
+<part name="GND_5" library="adafruit" deviceset="PINHD-1X1" device=""/>
+<part name="SCL1" library="adafruit" deviceset="PINHD-1X1" device="CB"/>
+<part name="SDA1" library="adafruit" deviceset="PINHD-1X1" device="CB"/>
+</parts>
+<sh
