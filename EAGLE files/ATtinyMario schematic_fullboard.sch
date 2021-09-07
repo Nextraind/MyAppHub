@@ -904,4 +904,10 @@ Big oval pads</description>
 <part name="SCL1" library="adafruit" deviceset="PINHD-1X1" device="CB"/>
 <part name="SDA1" library="adafruit" deviceset="PINHD-1X1" device="CB"/>
 </parts>
-<sh
+<sheets>
+<sheet>
+<plain>
+</plain>
+<instances>
+<instance part="ATTINY85" gate="G$1" x="45.72" y="55.88" smashed="yes">
+<attribute name="NAME" x="35.56" y="64.262" size="1.778" layer=
