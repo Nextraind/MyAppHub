@@ -910,4 +910,8 @@ Big oval pads</description>
 </plain>
 <instances>
 <instance part="ATTINY85" gate="G$1" x="45.72" y="55.88" smashed="yes">
-<attribute name="NAME" x="35.56" y="64.262" size="1.778" layer=
+<attribute name="NAME" x="35.56" y="64.262" size="1.778" layer="95"/>
+<attribute name="VALUE" x="35.56" y="43.18" size="1.778" layer="96"/>
+</instance>
+<instance part="P+1" gate="VCC" x="20.32" y="91.44" smashed="yes">
+<attribute name="VALUE" x="17
