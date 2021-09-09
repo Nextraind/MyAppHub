@@ -914,4 +914,7 @@ Big oval pads</description>
 <attribute name="VALUE" x="35.56" y="43.18" size="1.778" layer="96"/>
 </instance>
 <instance part="P+1" gate="VCC" x="20.32" y="91.44" smashed="yes">
-<attribute name="VALUE" x="17
+<attribute name="VALUE" x="17.78" y="88.9" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="GND" gate="GND" x="20.32" y="40.64" smashed="yes">
+<attribute name="VALUE" x="18.415" y="37.465" size="1.7
