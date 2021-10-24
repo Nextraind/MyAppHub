@@ -985,4 +985,8 @@ Big oval pads</description>
 </instance>
 <instance part="SDA" gate="G$1" x="-27.94" y="16.256" smashed="yes">
 <attribute name="NAME" x="-34.29" y="19.431" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-34.29" y="11.176" size="1.778" layer=
+<attribute name="VALUE" x="-34.29" y="11.176" size="1.778" layer="96"/>
+</instance>
+<instance part="VCC_2" gate="G$1" x="29.464" y="21.336" smashed="yes">
+<attribute name="NAME" x="23.114" y="24.511" size="1.778" layer="95"/>
+<attribut
