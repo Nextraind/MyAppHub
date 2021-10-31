@@ -998,4 +998,8 @@ Big oval pads</description>
 <instance part="U$1" gate="G$1" x="40.64" y="88.9" smashed="yes"/>
 <instance part="U$6" gate="G$1" x="40.64" y="81.28" smashed="yes"/>
 <instance part="U$7" gate="G$1" x="40.64" y="73.66" smashed="yes"/>
-<instance part="GND2" gate="GND" x="30.48" y="68.5
+<instance part="GND2" gate="GND" x="30.48" y="68.58" smashed="yes">
+<attribute name="VALUE" x="28.575" y="65.405" size="1.778" layer="96"/>
+</instance>
+<instance part="U$2" gate="G$1" x="88.9" y="83.82" smashed="yes" rot="R90"/>
+<instance
