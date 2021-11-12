@@ -1012,4 +1012,7 @@ Big oval pads</description>
 <attribute name="NAME" x="-40.64" y="65.024" size="1.778" layer="95" font="vector" align="bottom-center"/>
 <attribute name="VALUE" x="-40.64" y="61.976" size="1.778" layer="96" font="vector" align="top-center"/>
 </instance>
-<instance part="T1" gate="G$1" x
+<instance part="T1" gate="G$1" x="-33.02" y="71.12" smashed="yes">
+<attribute name="NAME" x="-43.18" y="78.74" size="1.778" layer="95"/>
+</instance>
+<instance part="T2" gate="G$1" x="-22.86" y="63.5" smashed="yes
