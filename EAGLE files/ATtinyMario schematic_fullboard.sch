@@ -1019,4 +1019,6 @@ Big oval pads</description>
 <instance part="P+5" gate="VCC" x="-25.4" y="93.98" smashed="yes">
 <attribute name="VALUE" x="-27.94" y="91.44" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R13" gate="G$
+<instance part="R13" gate="G$1" x="-30.48" y="50.8" smashed="yes" rot="R90">
+<attribute name="NAME" x="-32.004" y="50.8" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VA
