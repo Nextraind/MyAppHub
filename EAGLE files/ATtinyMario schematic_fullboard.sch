@@ -1021,4 +1021,7 @@ Big oval pads</description>
 </instance>
 <instance part="R13" gate="G$1" x="-30.48" y="50.8" smashed="yes" rot="R90">
 <attribute name="NAME" x="-32.004" y="50.8" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
-<attribute name="VA
+<attribute name="VALUE" x="-28.956" y="50.8" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
+<instance part="GND3" gate="GND" x="-30.48" y="40.64" smashed="yes">
+<attribute n
