@@ -1067,4 +1067,9 @@ Big oval pads</description>
 <net name="VCC" class="0">
 <segment>
 <pinref part="ATTINY85" gate="G$1" pin="VCC"/>
-<wire x1="30.48" y1="60.96" x2="20.32" y2="
+<wire x1="30.48" y1="60.96" x2="20.32" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="60.96" x2="20.32" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="P+1" gate="VCC" pin="VCC"/>
+</segment>
+<segment>
+<pinr
