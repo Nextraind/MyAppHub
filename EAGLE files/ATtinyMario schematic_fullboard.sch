@@ -1059,4 +1059,12 @@ Big oval pads</description>
 <instance part="SDA1" gate="G$1" x="-15.24" y="16.256" smashed="yes">
 <attribute name="NAME" x="-21.59" y="19.431" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-21.59" y="11.176" size="1.778" layer="96"/>
-</ins
+</instance>
+</instances>
+<busses>
+</busses>
+<nets>
+<net name="VCC" class="0">
+<segment>
+<pinref part="ATTINY85" gate="G$1" pin="VCC"/>
+<wire x1="30.48" y1="60.96" x2="20.32" y2="
