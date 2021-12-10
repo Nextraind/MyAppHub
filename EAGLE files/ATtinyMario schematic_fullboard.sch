@@ -1075,4 +1075,6 @@ Big oval pads</description>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="78.74" y1="60.96" x2="81.28" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="60.96" x2="81.28" y2="93.98" width="0.1524" layer="91"/>
-<pin
+<pinref part="P+2" gate="VCC" pin="VCC"/>
+<wire x1="81.28" y1="93.98" x2="81.28" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="89.28" x2="109.22" y2="93.9
