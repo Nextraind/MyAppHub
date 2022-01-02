@@ -1102,4 +1102,7 @@ Big oval pads</description>
 </segment>
 <segment>
 <pinref part="VCC" gate="G$1" pin="1"/>
-<wir
+<wire x1="4.064" y1="21.336" x2="-3.556" y2="21.336" width="0.1524" layer="91"/>
+<label x="-3.556" y="21.336" size="1.778" layer="95"/>
+<pinref part="VCC_2" gate="G$1" pin="1"/>
+<wire x1="2
