@@ -1111,4 +1111,6 @@ Big oval pads</description>
 <wire x1="47.244" y1="21.336" x2="39.624" y2="21.336" width="0.1524" layer="91"/>
 <label x="39.624" y="21.336" size="1.778" layer="95"/>
 <pinref part="VCC_3" gate="G$1" pin="1"/>
-<wire x1="62.4
+<wire x1="62.484" y1="21.336" x2="54.864" y2="21.336" width="0.1524" layer="91"/>
+<wire x1="54.864" y1="21.336" x2="54.864" y2="28.956" width="0.1524" layer="91"/>
+<wire x1="54.864" y1="28.956" x2="39.624"
