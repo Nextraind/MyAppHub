@@ -1123,4 +1123,6 @@ Big oval pads</description>
 <junction x="16.764" y="28.956"/>
 </segment>
 <segment>
-<p
+<pinref part="T1" gate="G$1" pin="C"/>
+<wire x1="-30.48" y1="76.2" x2="-30.48" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="86.36" x2="-25.4" y2="86.
