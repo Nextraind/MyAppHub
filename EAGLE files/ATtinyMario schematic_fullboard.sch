@@ -1128,4 +1128,7 @@ Big oval pads</description>
 <wire x1="-30.48" y1="86.36" x2="-25.4" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="T2" gate="G$1" pin="C"/>
 <wire x1="-25.4" y1="86.36" x2="-20.32" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="-20.32" y1="86.36" x2="-20.32"
+<wire x1="-20.32" y1="86.36" x2="-20.32" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="P+5" gate="VCC" pin="VCC"/>
+<wire x1="-25.4" y1="91.44" x2="-25.4" y2="86.36" width="0.1524" layer="91"/>
+<juncti
