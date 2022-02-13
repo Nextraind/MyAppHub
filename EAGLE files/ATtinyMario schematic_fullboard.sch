@@ -1143,4 +1143,9 @@ Big oval pads</description>
 <segment>
 <pinref part="ATTINY85" gate="G$1" pin="GND"/>
 <wire x1="30.48" y1="48.26" x2="20.32" y2="48.26" width="0.1524" layer="91"/>
-<
+<wire x1="20.32" y1="48.26" x2="20.32" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="GND" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="
