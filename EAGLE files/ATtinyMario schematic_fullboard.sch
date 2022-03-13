@@ -1173,4 +1173,8 @@ Big oval pads</description>
 <wire x1="54.864" y1="8.636" x2="54.864" y2="13.716" width="0.1524" layer="91"/>
 <pinref part="GND_5" gate="G$1" pin="1"/>
 <wire x1="54.864" y1="13.716" x2="62.484" y2="13.716" width="0.1524" layer="91"/>
-</segmen
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="PAD2"/>
+<wire x1="33.02" y1="88.9" x2="30.48" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="88.9" x2="30.48" y2="81.28"
