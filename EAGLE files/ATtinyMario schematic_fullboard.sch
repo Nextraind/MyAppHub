@@ -1200,3 +1200,8 @@ Big oval pads</description>
 </segment>
 </net>
 <net name="N$1" class="0">
+<segment>
+<pinref part="ATTINY85" gate="G$1" pin="NRES/PB5"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="63.5" y1="60.96" x2="66.04" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="R
