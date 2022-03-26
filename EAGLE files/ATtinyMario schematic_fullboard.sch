@@ -1204,4 +1204,6 @@ Big oval pads</description>
 <pinref part="ATTINY85" gate="G$1" pin="NRES/PB5"/>
 <pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="63.5" y1="60.96" x2="66.04" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="R
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="66.04" y1="60.96" x2="68.58" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="88.9" x2="66.04" y2="88.9" width="
