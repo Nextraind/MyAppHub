@@ -1206,4 +1206,8 @@ Big oval pads</description>
 <wire x1="63.5" y1="60.96" x2="66.04" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="66.04" y1="60.96" x2="68.58" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="88.9" x2="66.04" y2="88.9" width="
+<wire x1="60.96" y1="88.9" x2="66.04" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="88.9" x2="66.04" y2="81.28" width="0.1524" layer="91"/>
+<junction x="66.04" y="60.96"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x
