@@ -1230,3 +1230,9 @@ Big oval pads</description>
 <pinref part="ATTINY85" gate="G$1" pin="PB3"/>
 <wire x1="63.5" y1="55.88" x2="88.9" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="88.9" y1="63.5" x2="88.9" y2="55.88" width="0.1524" layer="91"/>
+<junction x="88.9" y="63.5"/>
+<junction x="88.9" y="55.88"/>
+</segment>
+</net>
+<net name="BUTTON4_VCC" 
