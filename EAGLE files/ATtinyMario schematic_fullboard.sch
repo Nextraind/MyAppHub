@@ -1235,4 +1235,8 @@ Big oval pads</description>
 <junction x="88.9" y="55.88"/>
 </segment>
 </net>
-<net name="BUTTON4_VCC" 
+<net name="BUTTON4_VCC" class="0">
+<segment>
+<pinref part="R6" gate="G$1" pin="2"/>
+<wire x1="88.9" y1="73.66" x2="88.9" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1"
