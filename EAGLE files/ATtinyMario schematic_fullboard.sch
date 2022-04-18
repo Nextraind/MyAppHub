@@ -1255,4 +1255,11 @@ Big oval pads</description>
 <segment>
 <pinref part="R8" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="73.66" x2="109.22" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="P
+<pinref part="U$4" gate="G$1" pin="PAD2"/>
+<label x="105.156" y="72.644" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="BUTTON3_GND" class="0">
+<segment>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x
