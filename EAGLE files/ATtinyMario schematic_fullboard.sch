@@ -1271,4 +1271,7 @@ Big oval pads</description>
 </net>
 <net name="BUTTON2_GND" class="0">
 <segment>
-<pinref part=
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="50.8" y1="81.28" x2="46.1" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="U$6" gate="G$1" pin="PAD1"/>
+<wire x1="46.1" y1="81.2
