@@ -1274,4 +1274,9 @@ Big oval pads</description>
 <pinref part="R4" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="81.28" x2="46.1" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="U$6" gate="G$1" pin="PAD1"/>
-<wire x1="46.1" y1="81.2
+<wire x1="46.1" y1="81.28" x2="45.72" y2="81.28" width="0.1524" layer="91"/>
+<junction x="46.1" y="81.28"/>
+<label x="53.34" y="82.804" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="BUTTON1_GND" 
