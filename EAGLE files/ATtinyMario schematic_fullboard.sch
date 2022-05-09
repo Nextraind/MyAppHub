@@ -1298,4 +1298,10 @@ Big oval pads</description>
 <segment>
 <wire x1="-66.04" y1="63.5" x2="-45.72" y2="63.5" width="0.1524" layer="91"/>
 <label x="-66.04" y="63.5" size="1.778" layer="95"/>
-<pinref part="R
+<pinref part="R12" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="SPEAKER" class="0">
+<segment>
+<pinref part="ATTINY85" gate="G$1" pin="PB1"/>
+<wire x1="63.5" y1="50.8" 
