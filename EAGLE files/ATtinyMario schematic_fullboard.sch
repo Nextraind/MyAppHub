@@ -1311,4 +1311,10 @@ Big oval pads</description>
 <label x="-66.04" y="71.12" size="1.778" layer="95"/>
 <wire x1="-45.72" y1="71.12" x2="-66.04" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="R11" gate="G$1" pin="1"/>
-</segmen
+</segment>
+</net>
+<net name="SCL" class="0">
+<segment>
+<pinref part="ATTINY85" gate="G$1" pin="PB2"/>
+<wire x1="63.5" y1="53.34" x2="81.28" y2="53.34" width="0.1524" layer="91"/>
+<label x="81.28"
