@@ -1333,4 +1333,11 @@ Big oval pads</description>
 <wire x1="-17.78" y1="23.876" x2="-22.86" y2="23.876" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="23.876" x2="-22.86" y2="28.956" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="28.956" x2="-40.64" y2="28.956" width="0.1524" layer="91"/>
-<wire x1="-40.64" y1="28.956" x2="-40.64" y2="23.876" width="0.1524" 
+<wire x1="-40.64" y1="28.956" x2="-40.64" y2="23.876" width="0.1524" layer="91"/>
+<junction x="-40.64" y="23.876"/>
+</segment>
+</net>
+<net name="SDA" class="0">
+<segment>
+<pinref part="ATTINY85" gate="G$1" pin="PB0"/>
+<wire x1="63.5" y1="48.26" x2="81.2
