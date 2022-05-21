@@ -1326,4 +1326,7 @@ Big oval pads</description>
 </segment>
 <segment>
 <label x="-48.26" y="23.876" size="1.778" layer="95"/>
-<wire x1="-30.48" y1="23.8
+<wire x1="-30.48" y1="23.876" x2="-40.64" y2="23.876" width="0.1524" layer="91"/>
+<pinref part="SCL" gate="G$1" pin="1"/>
+<pinref part="SCL1" gate="G$1" pin="1"/>
+<wire x1="-40.64" y1="23.876" x2="-50.8" y2="23.876" width
