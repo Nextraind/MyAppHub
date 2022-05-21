@@ -1329,4 +1329,6 @@ Big oval pads</description>
 <wire x1="-30.48" y1="23.876" x2="-40.64" y2="23.876" width="0.1524" layer="91"/>
 <pinref part="SCL" gate="G$1" pin="1"/>
 <pinref part="SCL1" gate="G$1" pin="1"/>
-<wire x1="-40.64" y1="23.876" x2="-50.8" y2="23.876" width
+<wire x1="-40.64" y1="23.876" x2="-50.8" y2="23.876" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="23.876" x2="-22.86" y2="23.876" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="23.876" x2="-22.86" y2="28.956" width="0.1524" l
