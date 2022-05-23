@@ -1345,4 +1345,9 @@ Big oval pads</description>
 </segment>
 <segment>
 <pinref part="R10" gate="G$1" pin="1"/>
-<wire x1="4.572" y1="74.676" x2="4.572" y2="69.596
+<wire x1="4.572" y1="74.676" x2="4.572" y2="69.596" width="0.1524" layer="91"/>
+<label x="4.572" y="69.596" size="1.778" layer="95"/>
+</segment>
+<segment>
+<label x="-48.26" y="16.256" size="1.778" layer="95"/>
+<wire x1="-50.8" y1="16.256" x2="-40
