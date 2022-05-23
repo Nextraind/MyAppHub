@@ -1350,4 +1350,7 @@ Big oval pads</description>
 </segment>
 <segment>
 <label x="-48.26" y="16.256" size="1.778" layer="95"/>
-<wire x1="-50.8" y1="16.256" x2="-40
+<wire x1="-50.8" y1="16.256" x2="-40.64" y2="16.256" width="0.1524" layer="91"/>
+<pinref part="SDA" gate="G$1" pin="1"/>
+<pinref part="SDA1" gate="G$1" pin="1"/>
+<wire x1="-40.64" y1="16.256" x2="-30.48" y2="16.25
