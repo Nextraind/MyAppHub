@@ -1340,4 +1340,9 @@ Big oval pads</description>
 <net name="SDA" class="0">
 <segment>
 <pinref part="ATTINY85" gate="G$1" pin="PB0"/>
-<wire x1="63.5" y1="48.26" x2="81.2
+<wire x1="63.5" y1="48.26" x2="81.28" y2="48.26" width="0.1524" layer="91"/>
+<label x="81.28" y="48.26" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R10" gate="G$1" pin="1"/>
+<wire x1="4.572" y1="74.676" x2="4.572" y2="69.596
