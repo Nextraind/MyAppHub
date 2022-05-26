@@ -1353,4 +1353,6 @@ Big oval pads</description>
 <wire x1="-50.8" y1="16.256" x2="-40.64" y2="16.256" width="0.1524" layer="91"/>
 <pinref part="SDA" gate="G$1" pin="1"/>
 <pinref part="SDA1" gate="G$1" pin="1"/>
-<wire x1="-40.64" y1="16.256" x2="-30.48" y2="16.25
+<wire x1="-40.64" y1="16.256" x2="-30.48" y2="16.256" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="16.256" x2="-22.86" y2="16.256" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="16.256" x2="-22.86" y2="8.636" width="0.1524" l
