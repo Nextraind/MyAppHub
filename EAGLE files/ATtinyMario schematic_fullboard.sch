@@ -1358,4 +1358,11 @@ Big oval pads</description>
 <wire x1="-22.86" y1="16.256" x2="-22.86" y2="8.636" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="8.636" x2="-40.64" y2="8.636" width="0.1524" layer="91"/>
 <wire x1="-40.64" y1="8.636" x2="-40.64" y2="16.256" width="0.1524" layer="91"/>
-<junction x="-40.6
+<junction x="-40.64" y="16.256"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="R11" gate="G$1" pin="2"/>
+<pinref part="T1" gate="G$1" pin="B"/>
+</seg
