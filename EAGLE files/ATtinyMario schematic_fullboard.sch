@@ -1371,4 +1371,11 @@ Big oval pads</description>
 <segment>
 <pinref part="T2" gate="G$1" pin="B"/>
 <pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="-25.4" y1="63.5" x2="-35.56" y2="63.5" width="0.1524" 
+<wire x1="-25.4" y1="63.5" x2="-35.56" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="AUDIO" class="0">
+<segment>
+<pinref part="T1" gate="G$1" pin="E"/>
+<wire x1="-30.48" y1="66.04" x2="-30.48" y2="55.88" width="0.1524" layer="91"/>
+<pinref part
