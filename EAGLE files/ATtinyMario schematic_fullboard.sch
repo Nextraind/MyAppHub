@@ -1365,4 +1365,10 @@ Big oval pads</description>
 <segment>
 <pinref part="R11" gate="G$1" pin="2"/>
 <pinref part="T1" gate="G$1" pin="B"/>
-</seg
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="T2" gate="G$1" pin="B"/>
+<pinref part="R12" gate="G$1" pin="2"/>
+<wire x1="-25.4" y1="63.5" x2="-35.56" y2="63.5" width="0.1524" 
