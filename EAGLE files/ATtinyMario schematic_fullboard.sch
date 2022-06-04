@@ -1381,4 +1381,9 @@ Big oval pads</description>
 <pinref part="T2" gate="G$1" pin="E"/>
 <wire x1="-20.32" y1="58.42" x2="-20.32" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="-20.32" y1="55.88" x2="-30.48" y2="55.88" width="0.1524" layer="91"/>
-<pinref 
+<pinref part="R13" gate="G$1" pin="2"/>
+<junction x="-30.48" y="55.88"/>
+<label x="-22.86" y="53.34" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$5" gate="G$1" pi
