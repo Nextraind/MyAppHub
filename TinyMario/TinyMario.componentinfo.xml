@@ -26,4 +26,7 @@
 					<SourcePath></SourcePath>
 				</d4p1:anyType>
 				<d4p1:anyType i:type="FileInfo">
-					<Abso
+					<AbsolutePath>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.3.172\include\avr\iotn85.h</AbsolutePath>
+					<Attribute></Attribute>
+					<Category>header</Category>
+			
