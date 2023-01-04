@@ -29,4 +29,9 @@
 					<AbsolutePath>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.3.172\include\avr\iotn85.h</AbsolutePath>
 					<Attribute></Attribute>
 					<Category>header</Category>
-			
+					<Condition>C</Condition>
+					<FileContentHash>RcYmivGpgsCGGCzeWAIjcA==</FileContentHash>
+					<FileVersion></FileVersion>
+					<Name>include/avr/iotn85.h</Name>
+					<SelectString></SelectString>
+					<
