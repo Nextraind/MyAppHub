@@ -20,4 +20,10 @@
 					<Category>include</Category>
 					<Condition>C</Condition>
 					<FileContentHash i:nil="true" />
-					<FileVersion></FileVersi
+					<FileVersion></FileVersion>
+					<Name>include</Name>
+					<SelectString></SelectString>
+					<SourcePath></SourcePath>
+				</d4p1:anyType>
+				<d4p1:anyType i:type="FileInfo">
+					<Abso
