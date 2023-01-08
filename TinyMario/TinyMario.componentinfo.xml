@@ -54,4 +54,9 @@
 					<Condition>C Exe</Condition>
 					<FileContentHash>YXFphlh0CtZJU+ebktABgQ==</FileContentHash>
 					<FileVersion></FileVersion>
-					<Name>templates/main.cpp</
+					<Name>templates/main.cpp</Name>
+					<SelectString>Main file (.cpp)</SelectString>
+					<SourcePath></SourcePath>
+				</d4p1:anyType>
+				<d4p1:anyType i:type="FileInfo">
+					<AbsolutePath>C:/Program Files (x86)\
