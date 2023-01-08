@@ -42,4 +42,9 @@
 					<Category>source</Category>
 					<Condition>C Exe</Condition>
 					<FileContentHash>/N2+H6ynBWZRQKkZlcoBdQ==</FileContentHash>
-					<FileVer
+					<FileVersion></FileVersion>
+					<Name>templates/main.c</Name>
+					<SelectString>Main file (.c)</SelectString>
+					<SourcePath></SourcePath>
+				</d4p1:anyType>
+				<d4p1:anyType i:typ
