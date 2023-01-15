@@ -62,4 +62,9 @@
 					<AbsolutePath>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.3.172\gcc\dev\attiny85</AbsolutePath>
 					<Attribute></Attribute>
 					<Category>libraryPrefix</Category>
-					<Condition>GCC</C
+					<Condition>GCC</Condition>
+					<FileContentHash i:nil="true" />
+					<FileVersion></FileVersion>
+					<Name>gcc/dev/attiny85</Name>
+					<SelectString></SelectString>
+					<Sourc
