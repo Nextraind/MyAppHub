@@ -80,4 +80,7 @@
 			</RteComponents>
 			<Status>Resolved</Status>
 			<VersionMode>Fixed</VersionMode>
-		
+			<IsComponentInAtProject>true</IsComponentInAtProject>
+		</ProjectComponent>
+	</ProjectComponents>
+</Store>
