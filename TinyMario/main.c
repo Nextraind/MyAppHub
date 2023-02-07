@@ -325,3 +325,175 @@ uint8_t next_random(uint8_t range)
 uint16_t readADC(uint8_t adcpin)
 {
 	uint16_t value=0;
+	
+	for (uint8_t i=0;i<16;i++)
+	{
+	ADCSRA &=~(1<<ADEN); // disable ADC Enable, to be safe
+	
+	//while (ADCSRA & (1<<ADSC)); // wait for ADSC bit to clear
+	
+	ADMUX = (adcpin & 7) << (MUX0); // REF bits are zero = Vcc as voltage reference
+	// ref = 0 : Vcc as voltage reference
+	// ref = (1<<REFS1) : 1.1 V internal as reference
+	ADCSRA = (1<<ADEN) | (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0);// divide by 16 | (1<<ADPS1);// | (1<<ADPS0); // Enable ADC in general
+	
+	ADCSRA |= (1<<ADSC); // Start ADC conversion
+	while(ADCSRA & (1<<ADSC)); // ADSC goes to zero when finished
+	//while(!(ADCSRA & (1<<ADIF)));
+	value+=ADC;
+	}
+	return value>>4; // divide by eight, average
+}
+
+void drawSprite(int16_t x, int16_t y, uint8_t w, uint8_t h, const unsigned char *buf, uint8_t flip)
+{
+  // Do clipping:
+  //if (x<0) x=0
+
+  // Assume don't need clipping for now
+  //ssd1306_send_command3(renderingFrame | (y >> 3), 0x10 | ((x & 0xf0) >> 4), x & 0x0f);
+  //uint8_t offset_y = y & 0x07;
+
+  int16_t sx, sy;
+  unsigned char *pos = (unsigned char*)buf;
+  uint8_t start_height=0, stop_height=h/8, xoff = 0, xw = w;
+  // i.e. for write_higeht 16 means 2 lots of 8 bits.
+
+  if (x >= 128 || x <= -w) return;
+  if (y>63) return;
+  if (x < 0) {
+    xoff = -x;
+    x = 0;
+  }
+  if (x + w > 128) xw = 128 - x;
+
+  uint8_t temp[16];
+  
+  if (y<0)
+  {
+	start_height=1+((-y)>>3); // i.e. -7 to -1 (inclusive): start_height = 1
+	y=0;
+  }
+  
+  if (y+h>64) stop_height = 8-(y>>3);
+	
+  for (uint8_t j = start_height; j < stop_height; j++) // goes from 0 to 1 (across y-axis)
+  {
+    sx = x ;
+    sy = y + (j-start_height) * 8;
+
+    // SetCursor
+    //ssd1306_send_command3(renderingFrame | (sy >> 3), 0x10 | ((sx & 0xf0) >> 4), sx & 0x0f);
+    oledSetPosition(sx, sy);
+
+    //ssd1306_send_data_start();
+
+    // Copy into local buffer forwards or backwards, then pass on :)
+
+    for (uint8_t i = xoff; i < xw; i++) // i.e. i goes 0 to 15 (across x axis) if not clipped
+    {
+      if (flip == 0) pos = (unsigned char*)buf + j + (i * (h>>3));
+      else pos = (unsigned char*)buf + j + ((w - 1 - i) * (h>>3)); // h/8
+      temp[i - xoff] =  pgm_read_byte(pos);
+    }
+
+    // cursor is incremented auto-magically to the right (x++) per write
+    
+    oledWriteDataBlock(temp, xw - xoff); 
+    
+  }
+}
+
+void killGoomba(uint8_t g_id)
+{
+	goomba[g_id].state = squash;
+	goomba[g_id].frame=17;
+	goomba[g_id].vx=0;
+	goomba[g_id].x++;//.x++ forces a blank replot
+}
+void spawnGoomba(uint16_t pos)
+{	// Check here for goomba availability
+	for (uint8_t g=0;g<MAX_GOOMBAS;g++)
+	{
+		if (goomba[g].state==dead)
+		{
+			goomba[g].x = (pos<<3);
+			goomba[g].y = 0;
+			goomba[g].vx = 1;
+			goomba[g].vy = 0;
+			goomba[g].frame = 0;
+			goomba[g].state=idle;
+			return;
+		}	
+	}
+}
+
+// getWorld function is inspired by the "Map::GenerateRoom" function in the Squario project on the Arduboy, found here:
+// https://github.com/arduboychris/Squario/blob/master/SquarioGame.cpp
+
+void getWorld(uint16_t vx)
+{
+  // vx is in units of bricks (i.e. vx/8), one screen is 16 wide
+  
+  uint8_t floor, gap=0;
+  uint8_t cx = (vx & 63);
+  
+  floor = 5 + next_random(3);  // can be 5, 6 or 7
+
+  for (uint8_t i=cx; i<cx+16;i++)
+  {
+	screen[i]=0;
+	
+	if (!next_random(5)) screen[i]=1; // Spawn a coin
+	
+	if (!gap)
+	{
+		//SetColumn(ifloor,7);
+		for (uint8_t f=floor;f<=7;f++)
+			screen[i] |= (1<<f);
+		if (!next_random(10)) // 1 in 10 chance of setting a gap
+		{
+			gap = 2 + next_random(4); // 2-5 
+			if (vx==0) gap=0; // no gaps on first screen
+		}
+		else if (!next_random(5) && vx!=0) // change floor height
+		{
+			if (!next_random(2) && floor<7) floor++;
+			else if (floor>1) floor--;
+		}
+		if (!next_random(16)) spawnGoomba((uint16_t)vx+8);// spawn half way across screen so there are no boundary issues on the right
+	} 
+	else gap--;
+  }
+
+}
+
+void drawScreen()
+{
+  uint8_t starti, stopi, wrapped_i=0, coin = 0, pipe = 0;
+  int xoffset;
+
+  starti = (viewx >> 3) & WORLD_MAX_LEN;  // wrap round (could be WORLD_BUFFER - 1)
+  xoffset = -(viewx & 0x07);
+  stopi = starti + 16;
+
+  if (starti > 0) {
+    starti--;  // Handles blanking blacking out edge when *just* disappeared off screen
+    xoffset -= 8;
+  }
+
+  if (xoffset != 0) stopi++; // Need to add an extra brick on the right because we are not drawing left brick fully
+  
+  for (uint8_t i = starti; i < stopi; i++) // limit of 256
+  {
+    if (delta_viewx < 0) wrapped_i = (i + 1) & WORLD_MAX_LEN; // wrap round (could be WORLD_BUFFER - 1)
+    else if (delta_viewx > 0) wrapped_i = (i - 1) & WORLD_MAX_LEN;
+
+    coin = 0;
+    if (screen[i & WORLD_MAX_LEN] & (1 << 0)) coin = 1;
+
+    for (uint8_t y = 1; y < 8; y++)
+    {
+      if (screen[i & WORLD_MAX_LEN] & (1 << y)) // There is a block here
+      {
+        if (delta_viewx < 0) // screen is scrolling right and we are within array limit
