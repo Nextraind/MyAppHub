@@ -497,3 +497,195 @@ void drawScreen()
       if (screen[i & WORLD_MAX_LEN] & (1 << y)) // There is a block here
       {
         if (delta_viewx < 0) // screen is scrolling right and we are within array limit
+          if (!(screen[wrapped_i] & (1 << y))) vblankout(xoffset + 8, y << 3, -delta_viewx); // View moving to the right, blocks scrolling to the left,
+        // therefore blank out smearing trail to the right of block
+        // but only if there isn't a block there.
+        if (delta_viewx > 0)
+          if (!(screen[wrapped_i] & (1 << y))) vblankout(xoffset - delta_viewx, y << 3, delta_viewx);
+
+        if ((y == 5 || y == 6) && pipe != 0) // it's a pipe column
+        {
+          if (y == 5 && pipe == 2) drawSprite(xoffset - 8, y << 3, 16, 16, &mario_pipe2[0], 0);
+          //drawSprite(xoffset, y<<3,8,8,&block8x8[0], 0);
+        }
+        else
+        { // don't draw bricks on pipes
+          //if (y == 7) drawSprite(xoffset, y << 3, 8, 8, &block8x8[0], 0);
+          //else 
+		  if ((screen[i & WORLD_MAX_LEN] & (1 << (y - 1))) == 0) // y>0 and nothing above, draw grassy brick
+            drawSprite(xoffset, y << 3, 8, 8, &topbrick[0], 0);
+          else drawSprite(xoffset, y << 3, 8, 8, &brick8x8[0], 0); // else brick is default
+        }
+
+        if (coin)
+        {
+          if (y == 1) drawCoin(xoffset, (y - 1) << 3);
+          else drawCoin(xoffset, (y - 2) << 3);
+          coin = 0;
+        }
+      }
+      //else vblankout(xoffset,y<<3,8);
+    }
+    xoffset += 8;
+  }
+}
+
+void playSoundEffect(uint8_t num)
+{
+  if (soundeffectplaying) return; // only one at once
+  // 6 - coin collect sound
+
+  tone_timer0_toggle_count = 0; // stop current sound
+
+  SoundEffectController.music_pos = 0;
+  SoundEffectController.music_index = num;
+  SoundEffectController.noteordelay = 1;
+
+  soundeffectplaying = 1;
+}
+
+void initMusic(struct toneController *controller)
+{
+  controller->music_pos = 0; // First position in music sequence, i.e. 0,1,2,3 etc )
+  controller->music_index = music_seq[controller->music_pos];//pgm_read_byte(&music_seq[0]+music_pos); // melody 0 (=intro
+  controller->music_note = 0; // First note of music_index melody
+  controller->noteordelay = 1; //simulate end of a delay to start the note
+}
+
+void handleMusic(struct toneController *controller)//, uint8_t channel_id)
+{
+  uint16_t *melody;
+  uint8_t numNotes;
+  uint8_t *entry_pos;
+  
+  // soundeffect = 1: Timer0 is used for music - SPEAKER2
+  // soundeffect = 0: Timer1 is used for sound effects - SPEAKER 
+
+  if ((controller->soundeffect == 0 && tone_timer1_toggle_count == 0) || (controller->soundeffect == 1 && tone_timer0_toggle_count == 0 && soundeffectplaying == 1))
+  {
+    if (controller->noteordelay == 0) // 0 = NOTE just ended, therefore now delay
+    {
+      // Note ended, start a delay
+      controller->current_delay = (controller->current_delay/3);
+
+      if (controller->soundeffect == 0) mytone(0, controller->current_delay,1);
+	  else mytone(0, controller->current_delay,0);
+
+      // Advance to next note position
+      controller->music_note++;								// sizeof(music_table)
+      numNotes = eeprom_read_byte((uint8_t *)(controller->music_index * 3) + 2); // next position is numNotes
+
+      if (controller->music_note >= numNotes) // exceeded notes in this melody part
+      {
+        controller->music_note = 0;
+        controller->music_pos++; // advance sequence position
+
+        if (controller->soundeffect == 1) // we are in the sound effect handler
+        {
+          soundeffectplaying = 0; // Global, control is passed back onto music handler, music will restart at next tone.
+        }
+        else if (controller->music_pos >= 12) // In music handler, and sequence has overflowed.
+        {
+          controller->music_pos = 1; // We are in the music handler
+        }
+        controller->music_index = music_seq[controller->music_pos];//pgm_read_byte(&music_seq[0]+music_pos);
+      }
+      controller->noteordelay = 1; //delay is next
+    } // end note ended
+    else if (controller->noteordelay == 1) // 1 = DELAY
+    {
+      // Delay ended, play next note
+      entry_pos = (uint8_t *)(controller->music_index * 3);//sizeof(music_table);
+      melody = (uint16_t *)eeprom_read_word((uint16_t*)entry_pos); // EEPROM position in entry table
+      entry_pos += 2;
+
+      //numNotes = eeprom_read_byte(entry_pos); // next position is numNotes
+      //noteDurations = (uint8_t*)(melody + (numNotes)); // noteDurations follows the melody in EEPROM
+
+      uint16_t ms = 1000, freq;
+
+      if (controller->soundeffect == 0) ms = MusicSpeed; // Music speed might change
+
+      freq = eeprom_read_word(melody + controller->music_note);  // duration is now encoded into top 3 bits of frequency.
+	  uint8_t note;
+	  note = freq >> 13;// Extract 2,4,8,16th,32nd note etc from freq
+	  freq &= 0x1FFF;
+	  controller->current_delay = ms>>note; // shift rather than divide.
+	  
+      if (controller->soundeffect == 0) mytone(freq, controller->current_delay,1);
+      else mytone(freq, controller->current_delay,0); // Sound effects
+     
+      controller->noteordelay = 0;
+    }// end delay ended
+  } // wnd time delay lapsed
+}
+
+void mytone(unsigned long frequency, unsigned long duration, uint8_t timer) // Hard coded for pin PB1 (OCR0A)
+{
+  uint32_t ocr;
+  uint8_t prescalarbits = 0b001;
+  uint8_t output = 1;
+
+// soundeffect = 0: 1 passed onto myTone: Timer1 is used for Music - SPEAKER
+// soundeffect = 1: 0 passed onto myTone: Timer0 is used for sound effects - SPEAKER2
+
+  // timer = 0 - use timer 0 and SPEAKER2 pin
+  // timer = 1 - use timer 1 and SPEAKER pin
+  
+  // Try music on PB1, using OC1A (rather than OC1B on PB4)
+
+  if (frequency == 0)
+  { // Means we want to switch off the pin and do a pause, but not output to the hardware pin
+    output = 0; frequency = 300; // A dummy frequency - timings are calculated but no pin output.
+  }
+
+  ocr = F_CPU / (2 * frequency);
+  
+  if (timer==0)
+  {
+    if (ocr > 256)
+    {
+      ocr >>= 3; //divide by 8
+      prescalarbits = 0b010;  // ck/8
+      if (ocr > 256)
+      {
+        ocr >>= 3; //divide by a further 8
+        prescalarbits = 0b011; //ck/64
+        if (ocr > 256)
+        {
+          ocr >>= 2; //divide by a further 4
+          prescalarbits = 0b100; //ck/256
+          if (ocr > 256)
+          {
+            // can't do any better than /1024
+            ocr >>= 2; //divide by a further 4
+            prescalarbits = 0b101; //ck/1024
+          } // ck/1024
+        }// ck/256
+      }// ck/64
+    }//ck/8*/
+  } //timer==0
+  else
+  {
+    prescalarbits = 1;
+    while (ocr > 0xff && prescalarbits < 15) {
+          prescalarbits++;
+          ocr>>=1;
+    }
+  }
+   
+  ocr -= 1;
+
+  if (timer==0)
+  {
+    tone_timer0_toggle_count = (2 * frequency * duration) / 1000;
+  }
+  else
+  {
+    // timer1 scalar code here
+    tone_timer1_toggle_count = (2 * frequency * duration) / 1000;
+    // Music uses timer1 and is on continuously so use as a crude timer
+    ISR_micro_period = 500000L / frequency; // 1E6 / (2*frequency), because ISR is called 2 times every period.
+  }
+
+  if (output)
