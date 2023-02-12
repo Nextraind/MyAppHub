@@ -689,3 +689,200 @@ void mytone(unsigned long frequency, unsigned long duration, uint8_t timer) // H
   }
 
   if (output)
+  {
+    if (timer==0)
+    {
+    TCCR0A = (1 << COM0B0) | (1 << WGM01); // = CTC // Fast PWM | (1<<WGM01) | (1<<WGM00);
+    }
+    else 
+    {
+	#ifndef SINGLE_SPEAKER
+		GTCCR = (1 << COM1B0); // set the OC1B to toggle on match
+	#endif
+    }
+  }
+  else // no output 
+  {
+    if (timer==0)
+    {
+      TCCR0A |= (1 << WGM01); // I guess this is always true
+      TCCR0A &= ~(1 << COM0B0); // No hardware pin output 
+	  #ifndef SINGLE_SPEAKER
+		PORTB &= ~(1 << SOUNDEFFECT_SPEAKER); // Set pin LOW
+	  #endif
+    }
+    else
+    {
+      // timer 1 code to turn off hardware support here
+	  #ifdef SINGLE_SPEAKER
+		  TCCR1 &= (1 <<COM1A0);  // disconnect OC1A
+	  #else 
+		  GTCCR &= (1 <<COM1B0); // disconnect hardware pin
+		  PORTB &= ~(1 << MUSIC_SPEAKER); // Set pin LOW
+	  #endif
+    }
+  }
+
+  if (timer==0)
+  {
+    TCCR0B = prescalarbits << CS00; //(1<<CS01);// | (1<<CS00); // Scalar. //prescalarbits;//
+    TCNT0 = 0; // Set timer0 counter to 0
+    OCR0A = ocr; // set compare value
+    TIMSK |= (1 << OCIE0A); // Activate timer0 COMPA ISR
+  }
+  else
+  {
+    TCCR1 = (1<<CTC1)| (prescalarbits<<CS10); // CTC1 : Clear Timer/Counter on Compare Match, after compare match with OCR1C value
+	#ifdef SINGLE_SPEAKER
+		if (output) TCCR1 |= (1<<COM1A0);
+	#endif
+    TCNT1 = 0; // timer 1 counter = 0
+    OCR1C = ocr; // set compare value 
+	#ifdef SINGLE_SPEAKER
+		TIMSK |= (1 << OCIE1A); // Activate timer1 COMPA ISR
+	#else
+		TIMSK |= (1 << OCIE1B); // Activate timer1 COMPB ISR
+	#endif
+  }
+  
+}
+
+#ifdef SINGLE_SPEAKER
+ISR(TIMER1_COMPA_vect) {
+#else
+ISR(TIMER1_COMPB_vect) {
+#endif
+  if (tone_timer1_toggle_count != 0)
+  {
+    if (tone_timer1_toggle_count > 0)
+    {
+      tone_timer1_toggle_count--;
+      if (tone_timer1_toggle_count == 0)
+      {
+        // turn off tone
+		#ifdef SINGLE_SPEAKER
+			TCCR1 &= (1 <<COM1A0); 
+		#else
+			GTCCR &= ~(1 << COM1B0); // Disconnect OC1B pin
+		#endif
+        return;
+      }
+    }
+  }
+  mymicros += ISR_micro_period;
+}
+
+ISR(TIMER0_COMPA_vect) {
+  if (tone_timer0_toggle_count != 0)
+  {
+    if (tone_timer0_toggle_count > 0)
+    {
+      tone_timer0_toggle_count--;
+      if (tone_timer0_toggle_count == 0)
+      {
+        // turn off tone
+        //TCCR0A = 0;
+        TCCR0A &= ~(1<<COM0B0);
+        TIMSK &= ~(1 << OCIE0A); // Turn off interrupt bit.
+        return;
+      }
+    }
+  }
+}
+
+void handlemap_collisions(struct character *player)
+{
+  // Only apply velocities if no collisions in that direction, else clip to collision point.
+  int newmario_x, newmario_y;
+  uint8_t cellx, celly, ybitmask;
+  uint16_t cellx_zone;
+
+  //if (player->coincollector)
+  //{
+	if (player->vy < -7) player->vy = -7; //
+  //}
+  //else if (player->vy<-1) player->vy = -1; //non-coin collectors (i.e. goombas) have limited gravity
+  
+  newmario_x = player-> x + player->vx;
+  newmario_y =  player->y + player->vy;
+  player->collision = 0; // 1 = UP, 2=RIGHT, 4=DOWN, 8=LEFT
+
+  //if ((newmario_x-(int16_t)viewx)<0) newmario_x=viewx;
+
+  cellx_zone = (newmario_x >> 9); // 0-31 = 0, 32-63=1, 64-95=2, 96-127=3. >>8 = 3 + (log2 WORLD_BUFFER);
+
+  // 0-63 = 0, 64-127 = 1 ... therefore 64*8 = 2^6 * 2^3 = 2^9 = 512
+  cellx = (newmario_x >> 3) & WORLD_MAX_LEN;
+  celly = newmario_y >> 3; // generate bit-mask for byte describing y-column in screen data.
+  uint8_t yoffset = newmario_y & 0x07, xoffset = newmario_x & 0x07;
+
+  //ybitmask = 1 << celly;
+  if (yoffset==0) ybitmask = (player->mask) << celly;
+  else ybitmask = ((player->mask<<1)+1)<<celly; // add an extra cell 
+  
+  if (newmario_y < 0) {
+    celly = 0;  // means that a block is never found and mario can jump through the top of the screen!
+    ybitmask = 0;
+  }
+  else if (newmario_y>48) // can't fall off the bottom of the screen!
+  {
+	newmario_y = 48;
+	player->vy = 0;
+	
+	celly = 6;  
+	ybitmask = 0;
+  }
+
+ ybitmask&=~(1<<0); // means no collisions with row0
+
+  uint8_t check_cell, check_cell2;
+
+  if (player->vx > 0) // Check Mario's righthand side if he tried to move to the right
+  {                 
+    check_cell = (cellx + player->w) & WORLD_MAX_LEN; // WORLD_BUFFER - 1
+    
+    //if (screen[check_cell]&ybitmask || screen[check_cell] & (ybitmask << 1) || (yoffset != 0 && screen[check_cell] & (ybitmask << 2)))
+    if (screen[check_cell]&ybitmask) // that's all
+    { // clip
+      // Strictly we should update cellx_zone to be relevant to the zone of the block that caused the collision
+      player->x = (cellx_zone << 9) + (cellx << 3);
+      if (cellx == 0) cellx = WORLD_MAX_LEN; else cellx -= 1; // handle wrap
+      player->collision |= 2; // 1 = UP, 2=RIGHT, 4=DOWN, 8=LEFT
+      player->vx = 0;
+    }
+    else
+    {
+      player->x = newmario_x;
+    }
+  }
+  else if (player->vx < 0)
+  {
+    //player->x=newmario_x;
+   // if (screen[cellx]&ybitmask || screen[cellx] & (ybitmask << 1) || (yoffset != 0 && screen[cellx] & (ybitmask << 2)))
+   if (screen[cellx]&ybitmask) 
+    { // clip
+      ///cellx=(cellx+1) & 31; // if collided with left, push back to the right - handle wrap
+      cellx++;
+      if (cellx > WORLD_MAX_LEN) {
+        cellx = 0;
+        cellx_zone++;
+      }
+      player->x = (cellx_zone << 9) + (cellx << 3); // Strictly we should update cellx_zone to be relevant to the zone of the block that caused the collision
+      player->collision |= 8; // 1 = UP, 2=RIGHT, 4=DOWN, 8=LEFT
+      player->vx = 0;
+    }
+    else
+    {
+      player->x = newmario_x;
+    }
+
+  }
+
+  //
+  // celly+2 should be valid at this point
+  
+  ybitmask = 1 << (celly+player->w);
+  ybitmask&=~(1<<0); // means no collisions with row 0
+  
+  if (player->vy > 0 || player->vy == 0) // going down
+  {
