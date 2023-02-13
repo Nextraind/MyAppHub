@@ -886,3 +886,175 @@ void handlemap_collisions(struct character *player)
   
   if (player->vy > 0 || player->vy == 0) // going down
   {
+    check_cell = (cellx + 1) & WORLD_MAX_LEN;
+    check_cell2 = (cellx + 2) & WORLD_MAX_LEN;
+    //if ((celly + 2 >= 8) || screen[cellx] & ybitmask  || screen[check_cell] & ybitmask  || (xoffset != 0 && screen[check_cell2] & ybitmask))
+	if (screen[cellx] & ybitmask  || screen[check_cell] & ybitmask  || (xoffset != 0 && screen[check_cell2] & ybitmask))
+    { // clip
+      player->vy = 0; player->jumpstate = nojump;
+      if (celly + 2 >= 8) celly = 6;
+      player->y = (celly << 3);
+      player->collision |= 4; // 1 = UP, 2=RIGHT, 4=DOWN, 8=LEFT
+      player->vy = 0;
+    }
+    else
+    {
+      if (player->vy == 0 && player->jumpstate == nojump) {
+        player->jumpstate = jumpdown;
+      }
+      player->y = newmario_y; // allow new vertical position
+    }
+  }
+  else if (player->vy < 0) // Have we hit our head?
+  {
+    ybitmask = 1 << (celly);
+    ybitmask&=~(1<<0); // means no collisions with row 0
+  
+    //player->y=newmario_y;// allow new vertical position
+    check_cell = (cellx + 1) & WORLD_MAX_LEN; // WORLD_BUFFER -1
+    check_cell2 = (cellx + 2) & WORLD_MAX_LEN; // WORLD_BUFFER -1
+
+    if (screen[cellx] & (ybitmask) || screen[check_cell] & (ybitmask) || (xoffset != 0 && screen[check_cell2] & (ybitmask)))
+    { // clip
+      player->vy = 0; player->jumpstate = jumpdown;
+      celly += 1;
+      player->y = (celly << 3);
+      if (player->coincollector) playSoundEffect(HITHEAD_SOUND);
+      player->collision |= 1; // 1 = UP, 2=RIGHT, 4=DOWN, 8=LEFT
+      player->vy = 0;
+    }
+    else
+    {
+      //if (mario.vy==0 && mario.jumpstate==nojump) {mario.jumpstate=jumpdown;}
+      player->y = newmario_y; // allow new vertical position
+    }
+  }
+  // Coin collision
+
+  // mario is at: cellx, cellx+1 (and if xoffset!=0, cellx+2)
+  // and at: celly, celly+1 (and if yoffset!=0, celly+2)
+
+  if (player->coincollector)
+  {
+    collidecoins(cellx, celly, yoffset);
+    collidecoins(cellx + 1, celly, yoffset);
+    if (xoffset != 0) collidecoins(cellx + 2, celly, yoffset);
+  }
+}
+
+void collidecoins(uint8_t cx, uint8_t celly, uint8_t yoffset)
+{
+  uint8_t coiny = 8, h;
+
+  h = 2; if (yoffset != 0) h = 3;
+
+  cx = cx & WORLD_MAX_LEN;
+
+  if (screen[cx] & 1) // Is there a coin in this column?
+  {
+    coiny = findcoiny(cx);
+    if (coiny != 8)
+    {
+      //if (collideMarioblock(cx, coiny))
+      if (coiny >= celly && coiny < (celly + h))
+      {
+        screen[cx] &= 254;
+        playSoundEffect(COIN_SOUND);
+        coincount++;
+        
+        //starti = (viewx >> 3) & 31;
+        //vblankout((cx<<3)-(viewx & 127), coiny*8,16);
+
+        // This function is only called when screen = 0, address 0x3D (left screen)
+        if (mario.x > (viewx + 128)) oled_addr = RIGHT_OLED_ADDRESS;//0x3C; // right hand side screen
+        for (uint8_t x = 0; x < 8; x++) vblankout(x << 4, coiny * 8, 16);
+        oled_addr = LEFT_OLED_ADDRESS;//0x3D; //set address back to be safe
+      }
+    }
+  }
+
+}
+
+uint8_t collideThings(int mx, int my, int mw, int mh, int tx, int ty, uint8_t w, uint8_t h)
+{
+  if ((mx + mw) < tx || mx > (tx + w)) return 0;
+  if ((my + mh) < ty || my > (ty + h)) return 0;
+
+  return 1;
+}
+
+uint8_t collideMario(int tx, int ty, uint8_t w, uint8_t h)
+{
+  if ((mario.x + 8 + 4) < tx || (mario.x + 4) > (tx + w)) return 0;
+  if ((mario.y + 8 + 4) < ty || (mario.y + 4) > (ty + h)) return 0;
+
+  return 1;
+}
+
+uint8_t findcoiny(uint8_t cx)
+{
+  for (uint8_t y = 1; y < 8; y++)
+  {
+    if (screen[cx & WORLD_MAX_LEN] & (1 << y)) // There is a block here
+    {
+      if (y == 1) return 0; //drawCoin(xoffset, (y-1)<<3);
+      else return y - 2; //drawCoin(xoffset, (y-2)<<3);
+    } // if found block
+  } // for y
+  return 8; // 8 means couldn't find a coin.
+}
+
+void animate_character(struct character *player)
+{
+
+  // Jumping
+  if (player->jumpstate != nojump)
+  {
+    player->vy += 1; // Gravity
+    if (player->vy >= 0 && player->jumpstate == jumpup) player->jumpstate = jumpdown; // flip state for animation
+	if (player->y>80) {player->state=dead; playSoundEffect(HITHEAD_SOUND);}
+  }
+  else // idle, left or right
+  {
+    //player->frame++;//1-mario.frame; // animate frame
+
+  }
+}
+
+void draw_mario()
+{
+  // Drawing  ***************************************
+  if (mario.jumpstate == nojump) // idle, left or right
+  {
+    if (mario.state == idle) drawSprite(mario.x - viewx, mario.y, 16, 16, &mario_idle[0], mario.dir);
+    else if (mario.state == left || mario.state == right)
+    {
+      if (mario.frame < 3) drawSprite(mario.x - viewx, mario.y, 16, 16, &mario_walk1[0], mario.dir);
+      else drawSprite(mario.x - viewx, mario.y, 16, 16, &mario_walk2[0], mario.dir);
+    } // end: left or right walking
+  } // end: not jumping
+  else if (mario.jumpstate == jumpup) drawSprite(mario.x - viewx, mario.y, 16, 16, &mario_jump1[0], mario.dir);
+  else if (mario.jumpstate == jumpdown) drawSprite(mario.x - viewx, mario.y, 16, 16, &mario_jump2[0], mario.dir);
+}
+
+void blank_character(uint8_t screen_id, struct character *player)
+{
+  //static int oldmario_x, oldmario_y; //initialised
+
+
+  //if (screen_id==0) // left - for now do this, later will have to store for each screen
+  //{
+
+  if ((player->x - (int16_t)viewx) != player->oldx[screen_id] || (player->y != player->oldy[screen_id])) // Blankout old mario position sprite if we've moved
+  {
+    vblankout(player->oldx[screen_id], player->oldy[screen_id], 16);
+    vblankout(player->oldx[screen_id], player->oldy[screen_id] + 8, 16);
+  }
+
+  //oldmario_x = mario.x-(int16_t)viewx; oldmario_y = mario.y;
+  player->oldx[screen_id] = player->x - (int16_t)viewx;
+  player->oldy[screen_id] = player->y;
+  //}
+}
+
+void vblankout(int sx, int sy, uint8_t w)//, uint8_t h)
