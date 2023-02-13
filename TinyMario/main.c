@@ -1058,3 +1058,191 @@ void blank_character(uint8_t screen_id, struct character *player)
 }
 
 void vblankout(int sx, int sy, uint8_t w)//, uint8_t h)
+{
+  // Set cursor @ top left corner
+
+  if (sx + w <= 0 || sx >= 128) return; // No amount of vertical strip will be visible
+
+  if (sx < 0) {
+    w = sx + w;
+    sx = 0;
+  }
+  if (sx + w > 128) {
+    w = 128 - sx;
+  }
+ 
+  if (sy<-7 || sy>63) return;
+  if (sy<0) sy=0; // i.e. between -7 and -1 
+  
+  //ssd1306_send_command3(renderingFrame | (sy >> 3), 0x10 | ((sx & 0xf0) >> 4), sx & 0x0f);
+
+  oledSetPosition(sx, sy);
+  //ssd1306_send_data_start();
+
+  uint8_t temp[16] = {0};
+
+  oledWriteDataBlock(temp, w);
+
+  /*
+    for (uint8_t i=0; i<w; i++)// i.e. i goes 0 to 15 (across x axis)
+    {
+    //  ssd1306_send_byte(0x00); // DUNCAN
+    }*/
+  ////ssd1306_send_stop();
+
+}
+
+#define buttonBASE 22
+#define button2BASE 22
+
+void readbuttons(void)
+{
+  uint16_t sensorValue, sensor2Value;
+  uint8_t buttons,buttons2;
+
+  sensor2Value = 1023 - readADC(ADC0);
+  sensorValue = readADC(ADC3);
+  
+  buttons = (sensorValue + (buttonBASE / 2)) / buttonBASE;
+  buttons2 = (sensor2Value + (button2BASE/2)) / button2BASE; 
+  
+  if (gamestate == normal) // can only move if not paused, etc.
+  {
+    // Moving (independent of jumping)
+    if (buttons & BUTTON_RIGHT)
+    {
+      mario.state = right; mario.dir = faceright;
+      mario.vx = 3;
+    } // RIGHT
+    else if (buttons & BUTTON_LEFT)
+    {
+      mario.state = left; mario.dir = faceleft;
+      mario.vx = -3;
+    } // LEFT
+    else
+    {
+      // De-accelerate
+      if (mario.vx > 0) mario.vx -= 1;
+      else if (mario.vx < 0) mario.vx += 1;
+    }
+
+    // Jumping
+    if ((buttons & BUTTON_A) && mario.jumpstate == nojump) {
+      mario.vy = -7;  // Only start jumping if not currently jumping
+      mario.jumpstate = jumpup;
+      playSoundEffect(JUMP_SOUND);
+    }
+
+    // Idle if not jumping and no keys pressed
+    if (buttons == 0 && mario.jumpstate == nojump) mario.state = idle;
+	
+	if (buttons2 & BUTTON2_B) // Fire!!!
+	{
+		if (fireball.state==dead)
+		{
+			fireball.frame=0;
+			fireball.x=mario.x+16; fireball.y=mario.y; fireball.vy=FIREBALL_SPEED; fireball.vx=FIREBALL_SPEED; fireball.state=idle;
+			if (mario.dir==faceleft) {fireball.vx=-FIREBALL_SPEED;fireball.x=mario.x;}
+		}	
+	}
+  } // end gamestate == normal
+
+
+  if (buttons2 & BUTTON2_SELECT) 
+  {
+    if (gamestate == normal)
+    {
+      playSoundEffect(PAUSE_SOUND);
+      oledWriteCommand2(0x81, 16);
+      oled_addr = RIGHT_OLED_ADDRESS;//0x3C;
+      oledWriteCommand2(0x81, 16);
+      oled_addr = LEFT_OLED_ADDRESS;//0x3D;
+      gamestate = paused;
+    }
+    else if (gamestate == paused_ready) {
+      gamestate = pause_return;
+    }
+  } // buttons2 == 0 (released pause button)
+  else if (gamestate == paused)
+  {
+    gamestate = paused_ready;
+  }
+  else if (gamestate == pause_return)
+  {
+    gamestate = normal;
+    oledWriteCommand2(0x81, OLED_CONTRAST);
+    oled_addr = RIGHT_OLED_ADDRESS;//0x3C;
+    oledWriteCommand2(0x81, OLED_CONTRAST);
+    oled_addr = LEFT_OLED_ADDRESS;//0x3D;
+  }
+
+}
+
+void drawCoin(int sx, uint8_t sy)
+{
+  // Do coin(s)
+  
+  if (delta_viewx < 0) vblankout(sx + 8, sy, -delta_viewx);
+  else if (delta_viewx > 0) vblankout(sx - delta_viewx, sy, delta_viewx);
+
+  if (coinframe == 1)
+    drawSprite(sx, sy, 8, 8, &coin1[0], 0);
+  else if (coinframe == 2 || coinframe == 4)
+    drawSprite(sx, sy, 8, 8, &coin2[0], 0);
+  else if (coinframe == 3)
+    drawSprite(sx, sy, 8, 8, &coin3[0], 0);
+}
+
+void updateDisplay(uint8_t screen_id)
+{
+
+  if (screen_id == 0) // Left screen
+  {
+    delta_viewx = old_viewx - viewx; // -ve means moving to right, +ve means moving to left.
+    if (delta_viewx > 8) delta_viewx = 8; // Limit delta_viewx
+    if (delta_viewx < -8) delta_viewx = -8;
+    oled_addr = LEFT_OLED_ADDRESS;//0x3D;
+  }
+  else // right hand screen  (0x3c)
+  {
+    viewx = viewx + 128;
+    oled_addr = RIGHT_OLED_ADDRESS;//0x3C;
+  }
+
+  drawScreen(); // Draws level scenery, coins, etc.
+   
+  // Draw fireball, goomba and other sprites etc
+  if (fireball.state!=dead)
+  {
+	if (fireball.y>=0 && fireball.y<=63) // only if on screen
+	{
+		blank_character(screen_id, &fireball);
+		if (fireball.frame<90) drawSprite(fireball.x-viewx, fireball.y,8,8,&fire[0],0); // this makes sure we blank before making dead
+	}
+  }
+  
+  blank_character(screen_id, &mario);
+  draw_mario();
+
+  for (uint8_t g=0; g<MAX_GOOMBAS;g++)
+  {
+		if (goomba[g].state!=dead) 
+		{
+			blank_character(screen_id, &goomba[g]);
+			if (goomba[g].state!=squash) drawSprite(goomba[g].x - viewx, goomba[g].y, 16, 16, &goomba1[0], (goomba[g].frame > 3));
+			else if ((goomba[g].frame>>4)&1) drawSprite(goomba[g].x - viewx, goomba[g].y+8, 16, 8, &squashed[0], 0);
+			else vblankout(goomba[g].x - viewx,goomba[g].y+8,16);
+		}
+  }
+  
+  if (screen_id == 0) old_viewx = viewx; // left screen
+  else {
+    viewx = viewx - 128;  // restore previous viewx
+    oled_addr = LEFT_OLED_ADDRESS;//0x3D;
+  }
+}
+
+void oledWriteInteger(uint8_t x, uint8_t y, uint8_t number)
+{
+  uint8_t n, n_div = 100;
+  oledSetPosition(x, y);
