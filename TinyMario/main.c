@@ -1246,3 +1246,12 @@ void oledWriteInteger(uint8_t x, uint8_t y, uint8_t number)
 {
   uint8_t n, n_div = 100;
   oledSetPosition(x, y);
+
+  for (uint8_t i = 0; i < 3; i++)
+  {
+    n = number / n_div; // 0-255, so n is never > 10
+    oledWriteDataBlock(&ucSmallFont[n * 6], 6); // write character pattern
+    number = number - n_div * n;
+    n_div = n_div / 10; // 100 --> 10 --> 1
+  }
+}
