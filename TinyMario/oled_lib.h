@@ -7,4 +7,9 @@
 #define OUTPUT_SCL asm("sbi 0x17, 2\n")   // 0x17 = DDRB, 2 = PB2 = SCL
 #define OUTPUT_SDA asm("sbi 0x17, 0\n")   // 0x17 = DDRB, 0 = PB0 = SDA
 
-#define INPUT_SCL asm("cbi 0x17, 2\n")   
+#define INPUT_SCL asm("cbi 0x17, 2\n")    // DDRB &= ~(1<<2);
+#define INPUT_SDA asm("cbi 0x17, 0\n")    // DDRB &= ~(1<<0);
+
+//#define DIRECT_PORT
+#define I2CPORT PORTB
+// A bit set to 1 in the DDR is an output, 0 is
