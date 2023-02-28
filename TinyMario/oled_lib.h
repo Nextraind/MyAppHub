@@ -12,4 +12,11 @@
 
 //#define DIRECT_PORT
 #define I2CPORT PORTB
-// A bit set to 1 in the DDR is an output, 0 is
+// A bit set to 1 in the DDR is an output, 0 is an INPUT
+#define I2CDDR DDRB
+
+// Pin or port numbers for SDA and SCL
+#define BB_SDA 0 //2
+#define BB_SCL 2 //3
+
+//#define I2C_CLK_LOW() I2CPORT &= ~(1 << BB_SCL) //compiles t
