@@ -19,4 +19,12 @@
 #define BB_SDA 0 //2
 #define BB_SCL 2 //3
 
-//#define I2C_CLK_LOW() I2CPORT &= ~(1 << BB_SCL) //compiles t
+//#define I2C_CLK_LOW() I2CPORT &= ~(1 << BB_SCL) //compiles to cbi instruction taking 2 clock cycles, extending the clock pulse
+
+uint8_t oled_addr;
+
+//inline void i2cByteOut(uint8_t);
+void i2cBegin(uint8_t);
+void i2cWrite(uint8_t *, uint8_t);
+void i2cEnd(void);
+v
