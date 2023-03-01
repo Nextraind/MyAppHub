@@ -27,4 +27,8 @@ uint8_t oled_addr;
 void i2cBegin(uint8_t);
 void i2cWrite(uint8_t *, uint8_t);
 void i2cEnd(void);
-v
+void I2CWrite(int, unsigned char*, int);
+void oledInit(uint8_t, int, int);
+void oledWriteCommand(unsigned char);
+void oledWriteCommand2(unsigned char, unsigned char);
+void oledSetCon
