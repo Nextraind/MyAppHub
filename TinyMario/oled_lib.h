@@ -31,4 +31,8 @@ void I2CWrite(int, unsigned char*, int);
 void oledInit(uint8_t, int, int);
 void oledWriteCommand(unsigned char);
 void oledWriteCommand2(unsigned char, unsigned char);
-void oledSetCon
+void oledSetContrast(unsigned char);
+void oledSetPosition(int, int);
+void oledWriteDataBlock(const uint8_t *, int);
+void oledFill(unsigned char);
+void oledWriteCommand(unsigned char c);
